@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { WorkoutListInfo } from "../types/Workout";
 
 const StartScreenWrapper = styled.div`
   display: grid;
@@ -24,13 +25,15 @@ const StartButton = styled.div`
 
 type StartScreenProps = {
   startButtonOnClick: () => void;
+  workoutInfo: WorkoutListInfo[];
 };
 
-const StartScreen : React.FC<StartScreenProps> = ({startButtonOnClick}) => {
+const StartScreen : React.FC<StartScreenProps> = ({startButtonOnClick, workoutInfo}) => {
   return (
     <StartScreenWrapper>
       <Title>YogaMotherfuckers!</Title>
       { <StartButton onClick={startButtonOnClick}>Start</StartButton>}
+      <div>{workoutInfo}</div>
     </StartScreenWrapper>
   );
 };

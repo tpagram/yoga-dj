@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import StartScreen from "./StartScreen";
 import EndScreen from "./EndScreen";
 import YogaSession from "./YogaSession";
-import buildWorkout from "../services/WorkoutBuilder"
+import buildWorkout from "../services/buildWorkout"
+import fetchWorkouts from "../services/fetchWorkouts"
 
 enum Stage {
   startScreen,
@@ -28,6 +29,7 @@ const App: React.FC = () => {
       return (
         <StartScreen
           startButtonOnClick={() => setCurrentStage(Stage.yogaSession)}
+          workoutInfo={fetchWorkouts()}
         />
       );
   }

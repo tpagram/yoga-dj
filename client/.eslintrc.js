@@ -26,10 +26,6 @@ module.exports = {
     "react-hooks"
   ],
   rules: {
-    "typedef": [
-      true,
-      "call-signature"
-    ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   },
