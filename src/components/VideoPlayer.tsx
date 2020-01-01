@@ -9,13 +9,15 @@ const VideoPlayer = styled.div`
 type VideoPlayerProps = {
   source: string;
   finished: () => void;
+  startTime: number;
+  endTime: number;
 };
 
-export default ({source, finished} : VideoPlayerProps) => {
+export default ({source, finished, startTime, endTime} : VideoPlayerProps) => {
   return (
     <VideoPlayer>
       <video onPause={finished} controls autoPlay>
-        <source src={source} type="video/mp4" />
+        <source src={`${source}#t=${startTime},${endTime}`} type="video/mp4" />
       </video>
     </VideoPlayer>
   );

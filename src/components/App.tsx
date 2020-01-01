@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import StartScreen from "./StartScreen";
-import VideoPlayer from "./VideoPlayer";
-import { SceneType } from "../types/Scene";
 import EndScreen from "./EndScreen";
 import YogaSession from "./YogaSession";
+import buildWorkout from "../services/WorkoutBuilder"
 
 enum Stage {
   startScreen,
@@ -18,7 +17,7 @@ const App: React.FC = () => {
     case Stage.yogaSession:
       return (
         <YogaSession
-          scenes={exampleScenes}
+          scenes={buildWorkout(exampleWorkoutSettings)}
           endWorkout={() => setCurrentStage(Stage.endScreen)}
         />
       );
@@ -34,13 +33,10 @@ const App: React.FC = () => {
   }
 };
 
-const exampleScenes = [
-  { sceneType: SceneType.timer, timeInSeconds: 5 },
-  { sceneType: SceneType.video, source: "videos/test.mp4" },
-  { sceneType: SceneType.timer, timeInSeconds: 5 },
-  { sceneType: SceneType.video, source: "videos/first-5-sec.m4v" },
-  { sceneType: SceneType.timer, timeInSeconds: 5 },
-  { sceneType: SceneType.video, source: "videos/first-5-sec.m4v" }
-];
+const exampleWorkoutSettings = {
+  restTimes: [[105,110], [130,135], [356,361]],
+  restDuration: 5,
+  source: "videos/builder_2_2.mp4"
+}
 
 export default App;
