@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import StartScreen from "./StartScreen";
 import EndScreen from "./EndScreen";
 import YogaSession from "./YogaSession";
-import buildWorkout from "../services/buildWorkout"
-import fetchWorkouts from "../services/fetchWorkouts"
+import buildWorkout from "../services/buildWorkout";
+import fetchWorkouts from "../services/fetchWorkouts";
 
 enum Stage {
   startScreen,
@@ -29,16 +29,20 @@ const App: React.FC = () => {
       return (
         <StartScreen
           startButtonOnClick={() => setCurrentStage(Stage.yogaSession)}
-          workoutInfo={fetchWorkouts()}
+          workoutList={fetchWorkouts()}
         />
       );
   }
 };
 
 const exampleWorkoutSettings = {
-  restTimes: [[105,110], [130,135], [356,361]],
+  restTimes: [
+    [105, 110],
+    [130, 135],
+    [356, 361]
+  ],
   restDuration: 5,
   source: "videos/builder_2_2.mp4"
-}
+};
 
 export default App;

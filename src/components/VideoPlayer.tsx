@@ -13,7 +13,7 @@ type VideoPlayerProps = {
   endTime: number;
 };
 
-export default ({source, finished, startTime, endTime} : VideoPlayerProps) => {
+export default ({ source, finished, startTime, endTime }: VideoPlayerProps) => {
   return (
     <VideoPlayer>
       <video onPause={finished} controls autoPlay>

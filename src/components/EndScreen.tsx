@@ -14,10 +14,8 @@ const Title = styled.div`
   font-weight: bold;
 `;
 
-export default () => {
-  return (
-    <EndScreen>
-      <Title>Yoga done!</Title>
-    </EndScreen>
-  );
-};
+export default () => (
+  <EndScreen>
+    <Title>Yoga done!</Title>
+  </EndScreen>
+);
