@@ -8,7 +8,6 @@ const fs = remote.require("fs");
 const BASE_PATH = "workouts";
 
 const fetchWorkoutList = (): WorkoutListInfo[] => {
-  console.log(fs.readdirSync("./"));
   return fs
     .readdirSync(BASE_PATH, { withFileTypes: true })
     .filter((dirent: any) => dirent.isDirectory())
@@ -22,12 +21,14 @@ const fetchWorkoutList = (): WorkoutListInfo[] => {
 };
 
 const yamlToDisplayInfo = (doc: any): WorkoutListInfo => {
-  console.log(doc);
+  let restSegments = doc.segments.filter((segment: any) => segment.type == "rest")
+  console.log(restSegments)
+  console.log(doc.segments)
   return {
     name: doc.name,
-    restCount: doc.restTimes.length,
-    restTimeTotal: doc.restTimes.reduce(
-      (sum: number, rest: any) => sum + doc.restLengths[rest.duration],
+    restCount: restSegments.length,
+    restTimeTotal: restSegments.reduce(
+      (sum: number, rest: any) => sum + doc.restLengths[rest.restType],
       0
     )
   };

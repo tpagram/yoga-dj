@@ -1,20 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import { WorkoutListInfo } from "../types/Workout";
+import moment from "moment";
 
-const WorkoutTable = styled.table`
-  font-size: 13px;
-  width: 70vw;
-  height: 100%;
+const WorkoutTable = styled.div`
+  display: grid;
+  grid-auto-rows: auto;
+  width: 80vw;
+  /* height: 100%; */
   border-collapse: true;
-  th,td {
-    /* padding-bottom: 30px; */
-    /* padding-right: 200px; */
-    /* border: 2px solid; */
-    text-align: center; 
-    vertical-align: middle;
-  }
 `;
+
+const WorkoutRow = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  div {
+    text-align: center;
+    vertical-align: true;
+    padding-right: 30px;
+    padding-bottom: 30px;
+  }
+`
 
 
 type WorkoutListProps = {
@@ -25,22 +31,18 @@ const WorkoutList: React.FC<WorkoutListProps> = ({
   workoutList
 }: WorkoutListProps) => (
   <WorkoutTable>
-    <thead>
-      <tr>
-        <th>Workout </th>
-        <th>Rests </th>
-        <th>Rest time </th>
-      </tr>
-    </thead>
-    <tbody>
+    <WorkoutRow>
+        <div>Workout</div>
+        <div>Rests</div>
+        <div>Rest time</div>
+    </WorkoutRow>
       {workoutList.map(workout => (
-        <tr>
-          <td>{workout.name}</td>
-          <td>{workout.restCount}</td>
-          <td>{workout.restTimeTotal}</td>
-        </tr>
+        <WorkoutRow>
+          <div>{workout.name}</div>
+          <div>{workout.restCount}</div>
+          <div>{moment([0,0]).seconds(workout.restTimeTotal).format("m:s")}</div>
+        </WorkoutRow>
       ))}
-    </tbody>
   </WorkoutTable>
 );
 
