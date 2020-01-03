@@ -15,16 +15,16 @@ const fetchWorkoutList = (): WorkoutListInfo[] => {
       yamlToDisplayInfo(
         yaml.safeLoad(
           fs.readFileSync(`${BASE_PATH}/${dirent.name}/routine.yml`, "utf8")
-        )
+        ),
+        dirent.name
       )
     );
 };
 
-const yamlToDisplayInfo = (doc: any): WorkoutListInfo => {
+const yamlToDisplayInfo = (doc: any, filename: string): WorkoutListInfo => {
   let restSegments = doc.segments.filter((segment: any) => segment.type == "rest")
-  console.log(restSegments)
-  console.log(doc.segments)
   return {
+    id: filename,
     name: doc.name,
     restCount: restSegments.length,
     restTimeTotal: restSegments.reduce(

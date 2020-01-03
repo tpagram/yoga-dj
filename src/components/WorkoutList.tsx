@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { WorkoutListInfo } from "../types/Workout";
 import moment from "moment";
+import Select from "react-select";
 
 const WorkoutTable = styled.div`
   display: grid;
@@ -20,8 +21,11 @@ const WorkoutRow = styled.div`
     padding-right: 30px;
     padding-bottom: 30px;
   }
-`
+`;
 
+const WorkoutSelect = styled(Select)`
+  width: 50vw;
+`;
 
 type WorkoutListProps = {
   workoutList: WorkoutListInfo[];
@@ -29,21 +33,47 @@ type WorkoutListProps = {
 
 const WorkoutList: React.FC<WorkoutListProps> = ({
   workoutList
-}: WorkoutListProps) => (
-  <WorkoutTable>
-    <WorkoutRow>
-        <div>Workout</div>
-        <div>Rests</div>
-        <div>Rest time</div>
-    </WorkoutRow>
-      {workoutList.map(workout => (
-        <WorkoutRow>
-          <div>{workout.name}</div>
-          <div>{workout.restCount}</div>
-          <div>{moment([0,0]).seconds(workout.restTimeTotal).format("m:s")}</div>
-        </WorkoutRow>
-      ))}
-  </WorkoutTable>
-);
+}: WorkoutListProps) => {
+  let workoutOptions = createWorkoutOptions(workoutList);
+  const [selectedWorkout, setSelectedWorkout] = useState(workoutOptions[0]);
+
+  const handleChange = (selectedOption: any) => {
+    setSelectedWorkout(selectedOption);
+  };
+
+  return (
+    <WorkoutSelect
+      isSearchable={true}
+      value={selectedWorkout}
+      onChange={handleChange}
+      options={workoutOptions}
+      styles={colourStyles}
+    />
+  );
+};
+
+const colourStyles = {
+  option: (styles: any, { data, isFocused, isSelected }: any) => {
+    return {
+      ...styles,
+      color: data.colour,
+      backgroundColor: isFocused ? "#e1effa" : null,
+      border: isSelected ? "1px solid" : null
+    };
+  }
+};
+
+const createWorkoutOptions = (workoutList: WorkoutListInfo[]) =>
+  workoutList
+    .sort((workout: WorkoutListInfo) => -workout.restTimeTotal)
+    .map((workout: WorkoutListInfo) => {
+      return {
+        value: workout.id,
+        label: `${workout.name} -- ${moment([0, 0])
+          .seconds(workout.restTimeTotal)
+          .format("m:s")}`,
+        colour: workout.restTimeTotal > 0 ? null : "green"
+      };
+    });
 
 export default WorkoutList;
