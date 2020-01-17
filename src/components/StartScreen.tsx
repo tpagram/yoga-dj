@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { WorkoutListInfo } from "../types/Workout";
+import { Workout } from "../types/Workout";
 import WorkoutList from "./WorkoutList";
 
 const StartScreenWrapper = styled.div`
@@ -28,16 +28,24 @@ const StartButton = styled.div`
 
 type StartScreenProps = {
   startButtonOnClick: () => void;
-  workoutList: WorkoutListInfo[];
+  availableWorkouts: Workout[];
+  onSelect: (value: Workout) => void;
+  selectedWorkout: Workout;
 };
 
 const StartScreen: React.FC<StartScreenProps> = ({
   startButtonOnClick,
-  workoutList
+  availableWorkouts,
+  onSelect,
+  selectedWorkout
 }: StartScreenProps) => (
   <StartScreenWrapper>
     <Title>YogaMotherfuckers!</Title>
-    <WorkoutList workoutList={workoutList} />
+    <WorkoutList
+      availableWorkouts={availableWorkouts}
+      onSelect={onSelect}
+      selectedWorkout={selectedWorkout}
+    />
     <StartButton onClick={startButtonOnClick}>Start</StartButton>
   </StartScreenWrapper>
 );

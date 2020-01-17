@@ -1,59 +1,64 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { WorkoutListInfo } from "../types/Workout";
+import { Workout } from "../types/Workout";
 import moment from "moment";
 import Select from "react-select";
 
-const WorkoutTable = styled.div`
-  display: grid;
-  grid-auto-rows: auto;
-  width: 80vw;
-  /* height: 100%; */
-  border-collapse: true;
-`;
-
-const WorkoutRow = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  div {
-    text-align: center;
-    vertical-align: true;
-    padding-right: 30px;
-    padding-bottom: 30px;
-  }
-`;
+type SelectOption = {
+  value: Workout;
+  label: string;
+  colour: string | null;
+}
 
 const WorkoutSelect = styled(Select)`
   width: 50vw;
 `;
 
+const SelectedWorkoutTitle = styled.div`
+  font-size: 50px;
+`;
+
 type WorkoutListProps = {
-  workoutList: WorkoutListInfo[];
+  availableWorkouts: Workout[];
+  onSelect: (value: Workout) => void;
+  selectedWorkout: Workout;
 };
 
 const WorkoutList: React.FC<WorkoutListProps> = ({
-  workoutList
+  availableWorkouts,
+  onSelect,
+  selectedWorkout
 }: WorkoutListProps) => {
-  let workoutOptions = createWorkoutOptions(workoutList);
-  const [selectedWorkout, setSelectedWorkout] = useState(workoutOptions[0]);
+  const workoutOptions = createWorkoutOptions(availableWorkouts)
+  const [selectedOption, setSelectedOption] = useState(workoutOptions[0])
 
-  const handleChange = (selectedOption: any) => {
-    setSelectedWorkout(selectedOption);
-  };
-
+  const handleChange = (newOption: SelectOption): void => {
+    setSelectedOption(newOption)
+    onSelect(newOption.value)
+  }
   return (
-    <WorkoutSelect
-      isSearchable={true}
-      value={selectedWorkout}
-      onChange={handleChange}
-      options={workoutOptions}
-      styles={colourStyles}
-    />
+    <div>
+      <WorkoutSelect
+        isSearchable={true}
+        value={selectedOption}
+        onChange={handleChange}
+        options={workoutOptions}
+        styles={colourStyles}
+      />
+      <SelectedWorkoutTitle>{selectedWorkout.id}</SelectedWorkoutTitle>
+    </div>
   );
 };
 
 const colourStyles = {
-  option: (styles: any, { data, isFocused, isSelected }: any) => {
+  option: (
+    styles: {},
+    {
+      data,
+      isFocused,
+      isSelected
+    }: { data: { colour: string }; isFocused: boolean; isSelected: boolean }
+  ): {} => {
     return {
       ...styles,
       color: data.colour,
@@ -63,12 +68,11 @@ const colourStyles = {
   }
 };
 
-const createWorkoutOptions = (workoutList: WorkoutListInfo[]) =>
-  workoutList
-    .sort((workout: WorkoutListInfo) => -workout.restTimeTotal)
-    .map((workout: WorkoutListInfo) => {
+const createWorkoutOptions = (availableWorkouts: Workout[]): SelectOption[] =>
+  availableWorkouts
+    .map((workout: Workout) => {
       return {
-        value: workout.id,
+        value: workout,
         label: `${workout.name} -- ${moment([0, 0])
           .seconds(workout.restTimeTotal)
           .format("m:s")}`,

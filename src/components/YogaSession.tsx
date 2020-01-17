@@ -1,25 +1,26 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-import { Scene, SceneType, TimerScene, VideoScene } from "../types/Scene";
+// import styled from "styled-components";
+import { SceneType } from "../types/Scene";
 import VideoPlayer from "./VideoPlayer";
 import Timer from "./Timer";
+import { Workout } from "../types/Workout";
 
 type YogaSessionProps = {
-  scenes: Scene[];
+  sessionWorkout: Workout;
   endWorkout: () => void;
 };
 
 const YogaSession: React.FC<YogaSessionProps> = ({
-  scenes,
+  sessionWorkout,
   endWorkout
 }: YogaSessionProps) => {
   const [currentSceneNumber, setCurrentSceneNumber] = useState(0);
 
-  let currentScene = scenes[currentSceneNumber];
-  let finishSceneCallback = setNextScene(
+  const currentScene = sessionWorkout.scenes[currentSceneNumber];
+  const finishSceneCallback = setNextScene(
     setCurrentSceneNumber,
     currentSceneNumber,
-    scenes.length,
+    sessionWorkout.scenes.length,
     endWorkout
   );
 
@@ -27,18 +28,26 @@ const YogaSession: React.FC<YogaSessionProps> = ({
     case SceneType.timer:
       return (
         <Timer
-          displayText={(currentScene as TimerScene).workoutTitle}
-          timeInMillis={(currentScene as TimerScene).timeInSeconds * 1000}
+          displayText={currentScene.name}
+          timeInMillis={currentScene.timeInSeconds * 1000}
+          finished={finishSceneCallback}
+        />
+      );
+    case SceneType.rest:
+      return (
+        <Timer
+          displayText={currentScene.name}
+          timeInMillis={currentScene.timeInSeconds * 1000}
           finished={finishSceneCallback}
         />
       );
     case SceneType.video:
       return (
         <VideoPlayer
-          source={(currentScene as VideoScene).source}
+          source={currentScene.source}
           finished={finishSceneCallback}
-          startTime={(currentScene as VideoScene).startTime}
-          endTime={(currentScene as VideoScene).endTime}
+          startTime={currentScene.startTime}
+          endTime={currentScene.endTime}
         />
       );
   }
@@ -49,12 +58,12 @@ const setNextScene = (
   currentScene: number,
   totalScenes: number,
   endWorkout: () => void
-) => {
-  let nextScene = (currentScene += 1);
+): (() => void) => {
+  const nextScene = (currentScene += 1);
   if (nextScene < totalScenes) {
-    return () => setCurrentScene(nextScene);
+    return (): void => setCurrentScene(nextScene);
   }
-  return () => endWorkout();
+  return (): void => endWorkout();
 };
 
 export default YogaSession;

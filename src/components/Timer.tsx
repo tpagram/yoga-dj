@@ -2,9 +2,15 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import moment from "moment";
 
-const Timer = styled.div`
-  min-width: 100%;
-  min-height: 100%;
+const TimerWrapper = styled.div`
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const TimerDetails = styled.div`
   display: grid;
   align-items: center;
   justify-content: center;
@@ -27,22 +33,30 @@ type TimerProps = {
   finished: () => void;
 };
 
-export default ({ displayText, timeInMillis, finished }: TimerProps) => {
+const Timer: React.FC<TimerProps> = ({
+  displayText,
+  timeInMillis,
+  finished
+}: TimerProps) => {
   const [timeLeft, setTimeLeft] = useState(timeInMillis);
-  const [finalTimeinMillis, _] = useState(moment().add(timeInMillis, "ms"));
+  const [finalTimeinMillis] = useState(moment().add(timeInMillis, "ms"));
 
   useEffect(() => {
     if (timeLeft <= 0) {
       finished();
     } else {
-      setInterval(() => setTimeLeft(finalTimeinMillis.diff(moment())), 100);
+      setTimeout(() => setTimeLeft(finalTimeinMillis.diff(moment())), 100);
     }
   });
 
   return (
-    <Timer>
-      <Title>{displayText}</Title>
-      <TimerDigits>{moment(timeLeft).format("m:ss")}</TimerDigits>
-    </Timer>
+    <TimerWrapper>
+      <TimerDetails>
+        <Title>{displayText}</Title>
+        <TimerDigits>{moment(timeLeft).format("m:ss")}</TimerDigits>
+      </TimerDetails>
+    </TimerWrapper>
   );
 };
+
+export default Timer;

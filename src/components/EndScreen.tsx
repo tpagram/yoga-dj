@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const EndScreen = styled.div`
+const EndScreenWrapper = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   align-items: center;
@@ -14,8 +14,9 @@ const Title = styled.div`
   font-weight: bold;
 `;
 
-export default () => (
-  <EndScreen>
+const EndScreen: React.FC = () => (
+  <EndScreenWrapper>
     <Title>Yoga done!</Title>
-  </EndScreen>
+  </EndScreenWrapper>
 );
+export default EndScreen;

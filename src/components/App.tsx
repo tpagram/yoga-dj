@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import StartScreen from "./StartScreen";
 import EndScreen from "./EndScreen";
 import YogaSession from "./YogaSession";
-import buildWorkout from "../services/buildWorkout";
-import fetchWorkouts from "../services/fetchWorkouts";
+import fetchAvailableWorkoutsFromDisk from "../services/fetchAvailableWorkoutsFromDisk";
 
 enum Stage {
   startScreen,
@@ -12,14 +11,19 @@ enum Stage {
 }
 
 const App: React.FC = () => {
+  const [availableWorkouts] = useState(fetchAvailableWorkoutsFromDisk())
   const [currentStage, setCurrentStage] = useState(Stage.startScreen);
+  const [selectedWorkout, setSelectedWorkout] = useState(availableWorkouts[0])
 
   switch (currentStage) {
     case Stage.yogaSession:
+      if (selectedWorkout === undefined) {
+        throw new Error("Yoga session started without a selected workout.");
+      }
       return (
         <YogaSession
-          scenes={buildWorkout(exampleWorkoutSettings)}
-          endWorkout={() => setCurrentStage(Stage.endScreen)}
+          sessionWorkout={selectedWorkout}
+          endWorkout={(): void => setCurrentStage(Stage.endScreen)}
         />
       );
     case Stage.endScreen:
@@ -28,21 +32,13 @@ const App: React.FC = () => {
     default:
       return (
         <StartScreen
-          startButtonOnClick={() => setCurrentStage(Stage.yogaSession)}
-          workoutList={fetchWorkouts()}
+          startButtonOnClick={(): void => setCurrentStage(Stage.yogaSession)}
+          availableWorkouts={availableWorkouts}
+          onSelect={setSelectedWorkout}
+          selectedWorkout={selectedWorkout}
         />
       );
   }
-};
-
-const exampleWorkoutSettings = {
-  restTimes: [
-    [105, 110],
-    [130, 135],
-    [356, 361]
-  ],
-  restDuration: 5,
-  source: "videos/builder_2_2.mp4"
 };
 
 export default App;

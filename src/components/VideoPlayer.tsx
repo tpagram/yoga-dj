@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const VideoPlayer = styled.div`
-  min-width: 100%;
-  min-height: 100%;
+const VideoPlayerWrapper = styled.div`
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
 `;
 
 type VideoPlayerProps = {
@@ -13,12 +17,39 @@ type VideoPlayerProps = {
   endTime: number;
 };
 
-export default ({ source, finished, startTime, endTime }: VideoPlayerProps) => {
+const VideoPlayer: React.FC<VideoPlayerProps> = ({
+  source,
+  finished,
+  startTime,
+  endTime
+}: VideoPlayerProps) => {
+  const videoPlayerReference = React.createRef<HTMLVideoElement>();
   return (
-    <VideoPlayer>
-      <video onPause={finished} controls autoPlay>
-        <source src={`${source}#t=${startTime},${endTime}`} type="video/mp4" />
+    <VideoPlayerWrapper>
+      <video
+        onLoadedMetadata={(): void => {
+          if (videoPlayerReference.current) {
+            videoPlayerReference.current.currentTime = startTime;
+          }
+        }}
+        onTimeUpdate={(): void => {
+          if (videoPlayerReference.current) {
+            if (videoPlayerReference.current.currentTime >= endTime) {
+              finished();
+            }
+            if (videoPlayerReference.current.currentTime < startTime) {
+              videoPlayerReference.current.currentTime = startTime;
+            }
+          }
+        }}
+        ref={videoPlayerReference}
+        controls
+        autoPlay
+      >
+        <source src={source} type="video/mp4" />
       </video>
-    </VideoPlayer>
+    </VideoPlayerWrapper>
   );
 };
+
+export default VideoPlayer;
