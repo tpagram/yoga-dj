@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow,powerSaveBlocker } = require('electron')
 const isDev = require('electron-is-dev');
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -6,6 +6,7 @@ const isDev = require('electron-is-dev');
 let win
 
 function createWindow () {
+
   // Create the browser window.
   win = new BrowserWindow({
     fullscreen:true,
@@ -19,7 +20,7 @@ function createWindow () {
   win.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  // win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {

@@ -6,7 +6,6 @@ import { Scene, SceneType, RestScene } from "../types/Scene";
 
 const fs = remote.require("fs");
 const path = remote.require("path");
-// const app = remote.require('app');
 const BASE_PATH = "workouts";
 
 const fetchAvailableWorkoutsFromDisk = (): Workout[] => {
@@ -15,10 +14,6 @@ const fetchAvailableWorkoutsFromDisk = (): Workout[] => {
     .readdirSync(BASE_PATH, { withFileTypes: true })
     .filter((dirent: any) => dirent.isDirectory())
     .map((dirent: any) => yamlToWorkout(dirent))
-    .sort(
-      (workoutA: Workout, workoutB: Workout) =>
-        workoutA.restTimeTotal - workoutB.restTimeTotal
-    );
 };
 
 const yamlToWorkout = (file: any): Workout => {
@@ -26,7 +21,7 @@ const yamlToWorkout = (file: any): Workout => {
     fs.readFileSync(`${BASE_PATH}/${file.name}/routine.yml`, "utf8")
   );
   const scenes = yamlWorkout.segments.map(
-    (segment: any): Scene => {
+    (segment: any, index: number, array: any[]): Scene => {
       return segmentToScene(
         segment,
         path.join(
@@ -36,33 +31,25 @@ const yamlToWorkout = (file: any): Workout => {
           file.name,
           "main.mp4"
         ),
-        yamlWorkout.restLengths
+        yamlWorkout.restLengths,
+        index >= array.length - 1 ? "Rest" : array[index + 1].name
       );
     }
   );
-  const restScenes = scenes.filter(
-    (scene: Scene) => scene.sceneType === SceneType.rest
-  );
-
   return {
     id: file.filename,
     name: yamlWorkout.name,
     scenes: scenes,
-    restCount: restScenes.length,
-    restTimeTotal: restScenes.reduce(
-      (sum: number, rest: RestScene) => sum + rest.timeInSeconds,
-      0
-    )
   };
 };
 
 const segmentToScene = (
   segment: any,
   filepath: string,
-  restLengths: any
+  restLengths: any,
+  nextSegmentName: string
 ): Scene => {
   if (segment.type === "video") {
-    console.log(segment);
     return {
       sceneType: SceneType.video,
       source: filepath,
@@ -74,7 +61,7 @@ const segmentToScene = (
     return {
       sceneType: SceneType.rest,
       timeInSeconds: restLengths[segment.restType],
-      name: "Rest",
+      name: `Next: ${nextSegmentName}`,
       durationType: segment.restType
     };
   } else {

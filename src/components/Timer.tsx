@@ -14,7 +14,7 @@ const TimerDetails = styled.div`
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-template-rows: 1fr 3fr;
+  grid-template-rows: 1fr 3fr 1fr;
 `;
 
 const Title = styled.div`
@@ -26,6 +26,18 @@ const TimerDigits = styled.div`
   font-size: 300px;
   text-align: center;
 `;
+
+const SkipButton = styled.div`
+  background-color: #8bc990;
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid black;
+  :hover {
+    background-color: #74a878;
+  }
+`
 
 type TimerProps = {
   displayText: string;
@@ -40,20 +52,25 @@ const Timer: React.FC<TimerProps> = ({
 }: TimerProps) => {
   const [timeLeft, setTimeLeft] = useState(timeInMillis);
   const [finalTimeinMillis] = useState(moment().add(timeInMillis, "ms"));
+  const chime = new Audio("chimes.mp3")
 
   useEffect(() => {
     if (timeLeft <= 0) {
+      chime.play()
       finished();
     } else {
       setTimeout(() => setTimeLeft(finalTimeinMillis.diff(moment())), 100);
     }
   });
 
+  useEffect(() => {chime.play()}, []);
+
   return (
     <TimerWrapper>
       <TimerDetails>
         <Title>{displayText}</Title>
         <TimerDigits>{moment(timeLeft).format("m:ss")}</TimerDigits>
+        <SkipButton onClick={finished}>Skip</SkipButton>
       </TimerDetails>
     </TimerWrapper>
   );

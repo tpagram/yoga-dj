@@ -8,45 +8,35 @@ type SelectOption = {
   value: Workout;
   label: string;
   colour: string | null;
-}
-
+};
 const WorkoutSelect = styled(Select)`
-  width: 50vw;
-`;
-
-const SelectedWorkoutTitle = styled.div`
-  font-size: 50px;
+  width: 60%;
 `;
 
 type WorkoutListProps = {
   availableWorkouts: Workout[];
   onSelect: (value: Workout) => void;
-  selectedWorkout: Workout;
 };
 
 const WorkoutList: React.FC<WorkoutListProps> = ({
   availableWorkouts,
-  onSelect,
-  selectedWorkout
+  onSelect
 }: WorkoutListProps) => {
-  const workoutOptions = createWorkoutOptions(availableWorkouts)
-  const [selectedOption, setSelectedOption] = useState(workoutOptions[0])
+  const workoutOptions = createWorkoutOptions(availableWorkouts);
+  const [selectedOption, setSelectedOption] = useState(workoutOptions[0]);
 
   const handleChange = (newOption: SelectOption): void => {
-    setSelectedOption(newOption)
-    onSelect(newOption.value)
-  }
+    setSelectedOption(newOption);
+    onSelect(newOption.value);
+  };
   return (
-    <div>
-      <WorkoutSelect
-        isSearchable={true}
-        value={selectedOption}
-        onChange={handleChange}
-        options={workoutOptions}
-        styles={colourStyles}
-      />
-      <SelectedWorkoutTitle>{selectedWorkout.id}</SelectedWorkoutTitle>
-    </div>
+    <WorkoutSelect
+      isSearchable={true}
+      value={selectedOption}
+      onChange={handleChange}
+      options={workoutOptions}
+      styles={colourStyles}
+    />
   );
 };
 
@@ -69,15 +59,12 @@ const colourStyles = {
 };
 
 const createWorkoutOptions = (availableWorkouts: Workout[]): SelectOption[] =>
-  availableWorkouts
-    .map((workout: Workout) => {
-      return {
-        value: workout,
-        label: `${workout.name} -- ${moment([0, 0])
-          .seconds(workout.restTimeTotal)
-          .format("m:s")}`,
-        colour: workout.restTimeTotal > 0 ? null : "green"
-      };
-    });
+  availableWorkouts.map((workout: Workout) => {
+    return {
+      value: workout,
+      label: workout.name,
+      colour: null
+    };
+  });
 
 export default WorkoutList;

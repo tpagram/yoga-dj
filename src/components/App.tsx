@@ -3,6 +3,8 @@ import StartScreen from "./StartScreen";
 import EndScreen from "./EndScreen";
 import YogaSession from "./YogaSession";
 import fetchAvailableWorkoutsFromDisk from "../services/fetchAvailableWorkoutsFromDisk";
+import { SceneType } from "../types/Scene";
+import { RestTimesConfig, Workout } from "../types/Workout";
 
 enum Stage {
   startScreen,
@@ -11,9 +13,27 @@ enum Stage {
 }
 
 const App: React.FC = () => {
-  const [availableWorkouts] = useState(fetchAvailableWorkoutsFromDisk())
+  const [availableWorkouts] = useState(fetchAvailableWorkoutsFromDisk);
   const [currentStage, setCurrentStage] = useState(Stage.startScreen);
-  const [selectedWorkout, setSelectedWorkout] = useState(availableWorkouts[0])
+  const [selectedWorkout, setSelectedWorkout] = useState(availableWorkouts[0]);
+  const [restTimes, setRestTimes] = useState({ short: 0, medium: 0, long: 0 });
+
+  const newWorkoutFromRestTimes = (
+    workout: Workout,
+    restTimes: RestTimesConfig
+  ): Workout => {
+    return {
+      ...workout,
+      scenes: workout.scenes.map(scene => {
+        if (scene.sceneType === SceneType.rest) {
+          const newScene = { ...scene };
+          newScene.timeInSeconds = restTimes[newScene.durationType];
+          return newScene;
+        }
+        return scene;
+      })
+    };
+  };
 
   switch (currentStage) {
     case Stage.yogaSession:
@@ -27,15 +47,28 @@ const App: React.FC = () => {
         />
       );
     case Stage.endScreen:
-      return <EndScreen />;
+      return (
+        <EndScreen finishedWorkout={selectedWorkout} restTimes={restTimes} />
+      );
     case Stage.startScreen:
     default:
       return (
         <StartScreen
           startButtonOnClick={(): void => setCurrentStage(Stage.yogaSession)}
           availableWorkouts={availableWorkouts}
-          onSelect={setSelectedWorkout}
+          onSelect={(workout: Workout): void => {
+            setSelectedWorkout(newWorkoutFromRestTimes(workout, restTimes));
+          }}
           selectedWorkout={selectedWorkout}
+          setRestTimes={(restTimes: RestTimesConfig): void => {
+            const newWorkout = newWorkoutFromRestTimes(
+              selectedWorkout,
+              restTimes
+            );
+            setRestTimes(restTimes);
+            setSelectedWorkout(newWorkout);
+          }}
+          restTimes={restTimes}
         />
       );
   }

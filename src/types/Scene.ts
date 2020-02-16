@@ -29,4 +29,4 @@ export interface RestScene extends BaseScene {
   durationType: string;
 }
 
-export type Scene = VideoScene | TimerScene | RestScene
+export type Scene = VideoScene | TimerScene | RestScene;

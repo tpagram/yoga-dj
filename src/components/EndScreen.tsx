@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { RestTimesConfig, Workout } from "../types/Workout";
 
 const EndScreenWrapper = styled.div`
   display: grid;
@@ -14,9 +15,20 @@ const Title = styled.div`
   font-weight: bold;
 `;
 
-const EndScreen: React.FC = () => (
+type EndScreenProps = {
+  finishedWorkout: Workout;
+  restTimes: RestTimesConfig;
+};
+
+const EndScreen: React.FC<EndScreenProps> = ({
+  finishedWorkout,
+  restTimes
+}: EndScreenProps) => (
   <EndScreenWrapper>
     <Title>Yoga done!</Title>
+    <div>{restTimes.short}</div>
+    <div>{restTimes.medium}</div>
+    <div>{restTimes.long}</div>
   </EndScreenWrapper>
 );
 export default EndScreen;
