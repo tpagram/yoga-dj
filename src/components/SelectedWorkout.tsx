@@ -66,7 +66,8 @@ const SelectedWorkout: React.FC<SelectedWorkoutProps> = ({
       <WorkoutTitle>{workout.name}</WorkoutTitle>
       <RestTimes>{workoutRestTimes(workout)}</RestTimes>
       <RestInputWrapper>{restInputs(restTimes, setRestTimes)}</RestInputWrapper>
-      <div>{`Total rest time: ${totalRestTime(workout)}`}</div>
+      <div>{`Total rest length: ${totalRestTime(workout)}`}</div>
+      <div>{`Workout length: ${totalWorkoutTime(workout)}`}</div>
     </WorkoutWrapper>
   );
 };
@@ -120,14 +121,32 @@ const restInputs = (
 const totalRestTime = (workout: Workout): string => {
   const restScenes = workout.scenes.filter(
     (scene: Scene) => scene.sceneType === SceneType.rest
-  )
-  
+  );
+
   const totalRestTime = (restScenes as RestScene[]).reduce(
     (sum: number, rest: RestScene) => sum + rest.timeInSeconds,
     0
-  )
+  );
   return moment([0, 0])
     .seconds(totalRestTime)
+    .format("m:ss");
+};
+
+const totalWorkoutTime = (workout: Workout): string => {
+  const totalWorkoutTime = workout.scenes
+    .map((scene: Scene): number => {
+      switch (scene.sceneType) {
+        case SceneType.video:
+          return scene.endTime - scene.startTime;
+        case SceneType.timer:
+        case SceneType.rest:
+        default:
+          return scene.timeInSeconds;
+      }
+    })
+    .reduce((sum: number, sceneTime: number) => sum + sceneTime, 0);
+  return moment([0, 0])
+    .seconds(totalWorkoutTime)
     .format("m:ss");
 };
 
