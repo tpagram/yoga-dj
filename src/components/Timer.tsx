@@ -27,17 +27,28 @@ const TimerDigits = styled.div`
   text-align: center;
 `;
 
-const SkipButton = styled.div`
+const TimerButton = styled.div`
   background-color: #8bc990;
   padding: 15px;
   text-align: center;
   font-size: 14px;
   font-weight: bold;
   border: 1px solid black;
+`;
+
+const SkipButton = styled(TimerButton)`
+  background-color: #f7d66a;
+  :hover {
+    background-color: #c2c246;
+  }
+`;
+
+const PauseButton = styled(TimerButton)`
+  background-color: #8bc990;
   :hover {
     background-color: #74a878;
   }
-`
+`;
 
 type TimerProps = {
   displayText: string;
@@ -51,19 +62,31 @@ const Timer: React.FC<TimerProps> = ({
   finished
 }: TimerProps) => {
   const [timeLeft, setTimeLeft] = useState(timeInMillis);
-  const [finalTimeinMillis] = useState(moment().add(timeInMillis, "ms"));
-  const chime = new Audio("chimes.mp3")
+  const [paused, setPaused] = useState(false);
+  const [finalTimeinMillis, setFinalTimeinMillis] = useState(moment().add(timeInMillis, "ms"));
+  const chime = new Audio("chimes.mp3");
 
   useEffect(() => {
     if (timeLeft <= 0) {
-      chime.play()
+      chime.play();
       finished();
-    } else {
-      setTimeout(() => setTimeLeft(finalTimeinMillis.diff(moment())), 100);
+    } else if (!paused) {
+      setTimeout(() => {
+        setTimeLeft(finalTimeinMillis.diff(moment()))
+        console.log(timeLeft, finalTimeinMillis) 
+      }, 100);
     }
   });
 
-  useEffect(() => {chime.play()}, []);
+  useEffect(() => {
+    chime.play();
+  }, []);
+
+  useEffect(() => {
+    if (!paused) {
+      setFinalTimeinMillis(moment().add(timeLeft, "ms"))
+    }
+  }, [paused]);
 
   return (
     <TimerWrapper>
@@ -71,6 +94,7 @@ const Timer: React.FC<TimerProps> = ({
         <Title>{displayText}</Title>
         <TimerDigits>{moment(timeLeft).format("m:ss")}</TimerDigits>
         <SkipButton onClick={finished}>Skip</SkipButton>
+        <PauseButton onClick={(): void => setPaused(!paused)}>Pause</PauseButton>
       </TimerDetails>
     </TimerWrapper>
   );
