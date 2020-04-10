@@ -73,7 +73,6 @@ const Timer: React.FC<TimerProps> = ({
     } else if (!paused) {
       setTimeout(() => {
         setTimeLeft(finalTimeinMillis.diff(moment()))
-        console.log(timeLeft, finalTimeinMillis) 
       }, 100);
     }
   });

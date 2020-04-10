@@ -1,0 +1,41 @@
+name: True Strength Builder 1 Day 1
+segments:
+  [
+    { type: "video", name: "Intro", start_time: "0", end_time: "20" },
+    { type: "video", name: "Wrists", start_time: "20", end_time: "99" },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "video", name: "Warmup", start_time: "1:39", end_time: "6:18" },
+    # { type: "video", name: "Sun sals", start_time: "6:18", end_time: "8:42" },
+    { type: "video", name: "Awkward planks x2", start_time: "8:42", end_time: "10:54" },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Chatarguna holds 15s x3", start_time: "10:54", end_time: "12:25" },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Knees-to-triceps", start_time: "12:25", end_time: "13:44" },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Up dog to planks", start_time: "13:44", end_time: "14:39" },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Forearm plank", start_time: "14:39", end_time: "15:50" },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Dolphin to down-dog", start_time: "15:50", end_time: "16:30" },
+    { type: "video", name: "Wrist extensors", start_time: "16:30", end_time: "17:49" },
+    { type: "video", name: "Kneeling toe-raises", start_time: "17:49", end_time: "18:58" },
+    { type: "video", name: "Overhead hand pumps", start_time: "18:58", end_time: "20:14" },
+    { type: "video", name: "Handstand shoulder extensions", start_time: "20:14", end_time: "21:44" },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Lolasana with blocks", start_time: "21:44", end_time: "22:37" },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "Camel", start_time: "22:37", end_time: "23:35" },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Wheel", start_time: "23:35", end_time: "25:28" },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Boat pose", start_time: "25:28", end_time: "26:29" },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Crow", start_time: "26:29", end_time: "28:25" },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "Socks sesh", start_time: "28:25", end_time: "29:58" },
+    { type: "video", name: "Cooldown", start_time: "29:58", end_time: "34:25" },
+  ]
+restLengths:
+  short: 0
+  medium: 14
+  long: 24

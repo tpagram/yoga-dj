@@ -1,0 +1,15 @@
+name: Debug
+segments:
+  [
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55" },
+    # { type: "video", name: "Wrists", start_time: 20, end_time: 25 },
+    # { type: "timer", name: "Handstand", duration: 5 },
+    # { type: "video", name: "Warmup", start_time: 99, end_time: 105 },
+    # { type: "rest", restType: 'medium' },
+    # { type: "video", name: "Sun sals", start_time: 618, end_time: 628 },
+  ]
+restLengths:
+  short: 5
+  medium: 10
+  long: 30

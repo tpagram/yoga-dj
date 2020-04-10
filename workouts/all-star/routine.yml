@@ -1,0 +1,27 @@
+name: All Star
+segments:
+  [
+    { type: "timer", name: "Wrist warmup", duration: 120 },
+    { type: "timer", name: "5 toe pulls", duration: 90 },
+    { type: "timer", name: "8 crane one foot lifts", duration: 90 },
+    { type: "rest", restType: 'medium' },
+    { type: "timer", name: "5 toe pulls", duration: 90 },
+    { type: "timer", name: "8 crane one foot lifts", duration: 90 },
+    { type: "rest", restType: 'medium' },
+    { type: "timer", name: "5 toe pulls", duration: 90 },
+    { type: "timer", name: "8 crane one foot lifts", duration: 90 },
+    { type: "rest", restType: 'long' },
+    { type: "timer", name: "5 pistol squats each side", duration: 90 },
+    { type: "timer", name: "5 slow pendulums", duration: 90 },
+    { type: "rest", restType: 'medium' },
+    { type: "timer", name: "5 pistol squats each side", duration: 90 },
+    { type: "timer", name: "5 slow pendulums", duration: 90 },
+    { type: "rest", restType: 'medium' },
+    { type: "timer", name: "5 pistol squats each side", duration: 90 },
+    { type: "timer", name: "5 slow pendulums", duration: 90 },
+    { type: "timer", name: "twist", duration: 90 },
+  ]
+restLengths:
+  short: 0
+  medium: 90
+  long: 120

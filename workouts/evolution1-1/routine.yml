@@ -1,0 +1,26 @@
+name: True Strength Evolution 1 Day 1
+segments:
+  [
+    { type: "video", name: "intro", start_time: 0:00, end_time: 0:27 },
+    { type: "video", name: "core", start_time: 0:27, end_time: 3:38 },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "first set of static holds", start_time: 3:38, end_time: 9:34 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "second set of static holds", start_time: 9:34, end_time: 15:44 },
+    { type: "video", name: "10 second wheel", start_time: 15:44, end_time: 17:10 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "15 second wheel", start_time: 17:10, end_time: 18:00 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "20 second wheel", start_time: 18:00, end_time: 19:30 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "pancake side stretches", start_time: 19:30, end_time: 22:00 },
+    { type: "video", name: "first side dolphin work", start_time: 22:00, end_time: 26:30 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "second side dolphin work", start_time: 26:30, end_time: 28:41 },
+    { type: "video", name: "video", start_time: 28:41, end_time: 33:08 }
+  ]
+restLengths:
+  short: 20,
+  medium: 30,
+  long: 40

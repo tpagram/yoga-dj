@@ -24,4 +24,4 @@ yarn-error.log*
 
 public/videos/*
 dist/*
-workouts/*
+workouts/*/*.mp4

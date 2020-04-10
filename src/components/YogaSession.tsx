@@ -38,6 +38,7 @@ const YogaSession: React.FC<YogaSessionProps> = ({
     case SceneType.timer:
       return (
         <Timer
+          key={currentScene.name}
           displayText={currentScene.name}
           timeInMillis={currentScene.timeInSeconds * 1000}
           finished={finishSceneCallback}
@@ -46,6 +47,7 @@ const YogaSession: React.FC<YogaSessionProps> = ({
     case SceneType.rest:
       return (
         <Timer
+          key={currentScene.name}
           displayText={currentScene.name}
           timeInMillis={currentScene.timeInSeconds * 1000}
           finished={finishSceneCallback}
@@ -54,6 +56,7 @@ const YogaSession: React.FC<YogaSessionProps> = ({
     case SceneType.video:
       return (
         <VideoPlayer
+          key={currentScene.name}
           source={currentScene.source}
           finished={finishSceneCallback}
           startTime={currentScene.startTime}

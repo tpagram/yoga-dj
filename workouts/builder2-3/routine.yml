@@ -1,0 +1,37 @@
+name: True Strength Builder 2 Day 3
+segments:
+  [
+    { type: "video", name: "Intro", start_time: 0:00, end_time: 0:30 },
+    { type: "video", name: "Wrists" , start_time: 0:30, end_time: 3:08 },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "video", name: "Warmup" , start_time: 3:08, end_time: 7:20 },
+    # { type: "video", name: "Sun sals" , start_time: 7:20, end_time: 9:40 }, #skip
+    { type: "video", name: "Dolphin sun sals" , start_time: 9:40, end_time: 11:14 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "Two minute plank" , start_time: 11:14, end_time: 13:44 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Sticked-out-leg chatarungas" , start_time: 13:44, end_time: 16:17 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Dolphin stuff" , start_time: 16:17, end_time: 18:00 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Side body holds" , start_time: 18:00, end_time: 19:32 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Pistol lifts" , start_time: 19:32, end_time: 21:34 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "Lolasana jumps" , start_time: 21:34, end_time: 23:26 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Extended planks" , start_time: 23:26, end_time: 26:05 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "First set handstand pushup" , start_time: 26:05, end_time: 26:45 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "Second set handstand pushup" , start_time: 26:45, end_time: 27:20 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "Socks" , start_time: 27:20, end_time: 29:49 },
+    { type: "video", name: "Cooldown" , start_time: 29:49, end_time: 34:55 },
+  ]
+restLengths:
+  short: 0
+  medium: 0
+  long: 0
+
+

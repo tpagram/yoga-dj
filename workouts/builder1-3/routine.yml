@@ -1,0 +1,32 @@
+name: True Strength Builder 1 Day 3
+segments:
+  [
+    { type: "video", name: "intro", start_time: 0:00, end_time: 0:20 },
+    { type: "video", name: "wrists", start_time: 0:20, end_time: 1:54 },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "video", name: "Warmup", start_time: 1:54, end_time: 5:56 },
+    # { type: "video", name: "sun sals", start_time: 5:56, end_time: 8:33 },
+    { type: "video", name: "wrists and squat shoulder pumps", start_time: 8:33, end_time: 10:40 },
+    { type: "video", name: "upward dog leg lifts", start_time: 10:40, end_time: 12:40 }, 
+    { type: "video", name: "side plank lifts done,", start_time: 12:40, end_time: 13:46 },
+    { type: "video", name: "pistols to crescent", start_time: 13:46, end_time: 16:50 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "downward dog wrist-taps", start_time: 16:50, end_time: 18:11 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "lolasana", start_time: 18:11, end_time: 19:44 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "superhero planks", start_time: 19:44, end_time: 21:46 },
+    { type: "rest", restType: 'mediumt' },
+    { type: "video", name: "back-to-the-wall extensions", start_time: 21:46, end_time: 23:06 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "2x 30s chest to walls", start_time: 23:06, end_time: 25:09 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "sock work", start_time: 25:09, end_time: 26:57 },
+    { type: "video", name: "down dog sideways leg holds", start_time: 26:57, end_time: 29:11 },
+    { type: "video", name: "core", start_time: 29:11, end_time: 30:10 },
+    { type: "video", name: "outro", start_time: 30:10, end_time: 34:37 },
+  ]
+restLengths:
+  short: 0
+  medium: 0
+  long: 0

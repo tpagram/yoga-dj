@@ -1,0 +1,24 @@
+name: True Strength Evolution 1 Day 5
+segments:
+  [
+    { type: "video", name: "intro", start_time: 0:00, end_time: 0:30 },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "video", name: "warmup", start_time: 0:30, end_time: 11:04 },
+    { type: "video", name: "first set of static hold", start_time: 11:04, end_time: 16:06 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "second set of static hold section", start_time: 16:06, end_time: 20:40 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "first half core", start_time: 20:40, end_time: 21:32 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "second half core", start_time: 21:32, end_time: 22:39 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "first half first set table", start_time: 22:39, end_time: 24:28 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "first half second set table", start_time: 24:28, end_time: 28:54 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "video", start_time: 28:54, end_time: 31:57 },
+  ]
+restLengths:
+  short: 15,
+  medium: 30,
+  long: 0

@@ -1,0 +1,37 @@
+name: True Strength Builder 2 Day 4
+segments:
+  [
+    { type: "video", name: "intro", start_time: 0:00, end_time: 0:27 },
+    { type: "video", name: "wrists", start_time: 0:27, end_time: 2:33 },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "video", name: "warmup", start_time: 2:33, end_time: 8:14 },
+    { type: "video", name: "fast sun sals", start_time: 10:37, end_time: 12:58 },
+    { type: "video", name: "toes down chaturangas", start_time: 12:58, end_time: 13:51 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "dolphin stuff", start_time: 13:51, end_time: 15:49 },
+    { type: "video", name: "wrist stuff", start_time: 15:49, end_time: 17:23 },
+    { type: "video", name: "pistol leg sweeps", start_time: 17:23, end_time: 18:49 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "first set wall plank", start_time: 18:49, end_time: 20:26 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "second set wall plank", start_time: 20:26, end_time: 21:27 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "side planks", start_time: 21:27, end_time: 23:20 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "lolasana", start_time: 23:20, end_time: 24:34 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "first set lolasana to plank", start_time: 24:34, end_time: 25:49 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "second set lolasana to plank", start_time: 25:49, end_time: 26:37 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "tricep headstand", start_time: 26:37, end_time: 28:09 },
+    { type: "video", name: "socks", start_time: 28:09, end_time: 30:50 },
+    { type: "video", name: "core", start_time: 30:50, end_time: 32:30 },
+    { type: "video", name: "cooldown", start_time: 32:30, end_time: 37:17 }
+  ]
+restLengths:
+  short: 0
+  medium: 0
+  long: 0
+
+

@@ -1,0 +1,32 @@
+name: True Strength Builder 2 Day 5
+segments:
+  [
+    { type: "video", name: "intro", start_time: 0:00, end_time: 00:26 },
+    { type: "video", name: "wrists", start_time: 00:26, end_time: 2:14 },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "video", name: "warmup", start_time: 2:14, end_time: 6:03 },
+    # { type: "video", name: "sun sals", start_time: 6:03, end_time: 8:20 },
+    { type: "video", name: "sun sals set b", start_time: 8:20, end_time: 10:30 },
+    { type: "video", name: "chatarunga knee taps", start_time: 10:30, end_time: 13:04 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "pendulum swings done <- skill gap,", start_time: 13:04, end_time: 16:00 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "pistol rolling crunches", start_time: 16:00, end_time: 17:53 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "first set one legged pushups", start_time: 17:53, end_time: 19:01 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "second set one legged pushups", start_time: 19:01, end_time: 20:48 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "shoulder pumps", start_time: 20:48, end_time: 23:09 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "first set of backbend wallwork", start_time: 23:09, end_time: 24:44 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "second set of backbend wallwork", start_time: 24:44, end_time: 25:21 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "core", start_time: 25:21, end_time: 26:50 },
+    { type: "video", name: "video", start_time: 26:50, end_time: 29:52 }
+  ]
+restLengths:
+  short: 0
+  medium: 0
+  long: 0

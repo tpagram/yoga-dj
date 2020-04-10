@@ -1,0 +1,35 @@
+name: True Strength Builder 1 Day 2
+segments:
+  [
+    { type: "video", name: "Intro ", start_time: 0:00, end_time: 0:18 },
+    { type: "video", name: "Wrists ", start_time: 0:18, end_time: 2:00 },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "video", name: "Warmup", start_time: 2:00, end_time: 6:30 },
+    { type: "video", name: "down dog knee to opposing triceps", start_time: 9:15, end_time: 10:33 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "chatarungas toes down", start_time: 10:33, end_time: 11:12 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "forearm planks knees-to-triceps", start_time: 11:12, end_time: 12:13 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "dolphins stuff", start_time: 12:13, end_time: 13:10 },
+    { type: "video", name: "quick stretch", start_time: 13:10, end_time: 13:29 },
+    { type: "video", name: "wrist extensors in squat", start_time: 13:29, end_time: 14:29 },
+    { type: "video", name: "horizontal arm pumps", start_time: 14:29, end_time: 15:37 },
+    { type: "video", name: "pistols to crescent", start_time: 15:37, end_time: 17:30 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "2x 30sec wall planks", start_time: 17:30, end_time: 19:30 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "lolasana", start_time: 19:30, end_time: 21:00 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "wheel", start_time: 21:00, end_time: 22:45 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "first set of one-arm down dog fuckoffs", start_time: 22:45, end_time: 24:48 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "second set of one-arm down dog fuckoffs", start_time: 24:48, end_time: 26:33 },
+    { type: "video", name: "bicycles", start_time: 26:33, end_time: 28:03 },
+    { type: "video", name: "cool down", start_time: 28:03, end_time: 32:14 }
+  ]
+restLengths:
+  short: 0
+  medium: 0
+  long: 0

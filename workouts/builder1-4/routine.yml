@@ -1,0 +1,31 @@
+name: True Strength Builder 1 Day 4
+segments:
+  [
+    { type: "video", name: "intro", start_time: 0:00, end_time: 0:19 },
+    { type: "video", name: "wrists", start_time: 0:19, end_time: 2:09 },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "video", name: "warmup", start_time: 2:09, end_time: 5:10 },
+    # { type: "video", name: "sun sals", start_time: 5:10, end_time: 8:59 },
+    { type: "video", name: "down dog tricep touches", start_time: 8:59, end_time: 10:41 },
+    { type: "video", name: "planks shoulder shrugs", start_time: 10:41, end_time: 12:05 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "forearm plank", start_time: 12:05, end_time: 13:36 },
+    { type: "video", name: "forearm plank taps", start_time: 13:36, end_time: 14:48 },
+    { type: "video", name: "dolphin-to-downdog", start_time: 14:48, end_time: 16:12 },
+    { type: "video", name: "shoulder pumps all sides", start_time: 16:12, end_time: 17:20 },
+    { type: "video", name: "kneels to squats", start_time: 17:20, end_time: 18:10 },
+    { type: "video", name: "pistol squat kneels", start_time: 18:10, end_time: 19:11 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "first set handstand shoulder extensions", start_time: 19:11, end_time: 20:16 },
+    { type: "video", name: "second set handstand shoulder extensions", start_time: 20:16, end_time: 21:03 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "lolasana", start_time: 21:03, end_time: 22:16 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "tripod", start_time: 22:16, end_time: 24:45 },
+    { type: "video", name: "core crunches", start_time: 24:45, end_time: 26:06 },
+    { type: "video", name: "video", start_time: 26:06, end_time: 30:12 }
+  ]
+restLengths:
+  short: 0
+  medium: 35
+  long: 0
