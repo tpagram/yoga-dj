@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { RestTimesConfig, Workout } from "../types/Workout";
+import { Workout } from "../types/Workout";
 
 const EndScreenWrapper = styled.div`
   display: grid;
@@ -17,18 +17,16 @@ const Title = styled.div`
 
 type EndScreenProps = {
   finishedWorkout: Workout;
-  restTimes: RestTimesConfig;
 };
 
 const EndScreen: React.FC<EndScreenProps> = ({
-  finishedWorkout,
-  restTimes
+  finishedWorkout
 }: EndScreenProps) => (
   <EndScreenWrapper>
     <Title>Yoga done!</Title>
-    <div>{restTimes.short}</div>
-    <div>{restTimes.medium}</div>
-    <div>{restTimes.long}</div>
+    <div>{finishedWorkout.restTimeConfig.short}</div>
+    <div>{finishedWorkout.restTimeConfig.medium}</div>
+    <div>{finishedWorkout.restTimeConfig.long}</div>
   </EndScreenWrapper>
 );
 export default EndScreen;

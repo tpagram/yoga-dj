@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Workout } from "../types/Workout";
-import moment from "moment";
 import Select from "react-select";
 
 type SelectOption = {
-  value: Workout;
+  value: string;
   label: string;
   colour: string | null;
 };
+
 const WorkoutSelect = styled(Select)`
   width: 60%;
 `;
 
 type WorkoutListProps = {
   availableWorkouts: Workout[];
-  onSelect: (value: Workout) => void;
+  onSelect: (workoutId: string) => void;
 };
 
 const WorkoutList: React.FC<WorkoutListProps> = ({
@@ -62,7 +62,7 @@ const colourStyles = {
 const createWorkoutOptions = (availableWorkouts: Workout[]): SelectOption[] =>
   availableWorkouts.map((workout: Workout) => {
     return {
-      value: workout,
+      value: workout.id,
       label: workout.name,
       colour: null
     };

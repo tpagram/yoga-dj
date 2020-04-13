@@ -2,7 +2,7 @@
 import jsyaml from "js-yaml";
 import { Workout } from "../types/Workout";
 import { remote } from "electron";
-import { Scene, SceneType, RestScene } from "../types/Scene";
+import { Scene, SceneType } from "../types/Scene";
 
 const fs = remote.require("fs");
 const path = remote.require("path");
@@ -13,7 +13,7 @@ const fetchAvailableWorkoutsFromDisk = (): Workout[] => {
   return fs
     .readdirSync(BASE_PATH, { withFileTypes: true })
     .filter((dirent: any) => dirent.isDirectory())
-    .map((dirent: any) => yamlToWorkout(dirent))
+    .map((dirent: any) => yamlToWorkout(dirent));
 };
 
 const yamlToWorkout = (file: any): Workout => {
@@ -40,6 +40,7 @@ const yamlToWorkout = (file: any): Workout => {
     id: file.filename,
     name: yamlWorkout.name,
     scenes: scenes,
+    restTimeConfig: yamlWorkout.restLengths
   };
 };
 

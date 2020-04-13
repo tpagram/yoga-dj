@@ -35,28 +35,28 @@ const StartButton = styled.div`
 type StartScreenProps = {
   startButtonOnClick: () => void;
   availableWorkouts: Workout[];
-  onSelect: (value: Workout) => void;
-  selectedWorkout: Workout;
-  setRestTimes: (value: RestTimesConfig) => void;
-  restTimes: RestTimesConfig;
+  onSelectWorkout: (workoutId: string) => void;
+  currentWorkout: Workout;
+  updateCurrentWorkoutRestTimes: (value: RestTimesConfig) => void;
 };
 
 const StartScreen: React.FC<StartScreenProps> = ({
   startButtonOnClick,
   availableWorkouts,
-  onSelect,
-  selectedWorkout,
-  setRestTimes,
-  restTimes
+  onSelectWorkout,
+  currentWorkout,
+  updateCurrentWorkoutRestTimes
 }: StartScreenProps) => (
   <StartScreenWrapper>
     <Title>YogaMotherfuckers!</Title>
     <SelectedWorkout
-      workout={selectedWorkout}
-      setRestTimes={setRestTimes}
-      restTimes={restTimes}
+      workout={currentWorkout}
+      updateCurrentWorkoutRestTimes={updateCurrentWorkoutRestTimes}
     ></SelectedWorkout>
-    <WorkoutList availableWorkouts={availableWorkouts} onSelect={onSelect} />
+    <WorkoutList
+      availableWorkouts={availableWorkouts}
+      onSelect={onSelectWorkout}
+    />
     <StartButton onClick={startButtonOnClick}>Start</StartButton>
   </StartScreenWrapper>
 );

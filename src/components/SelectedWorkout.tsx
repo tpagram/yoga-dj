@@ -52,20 +52,20 @@ const RestTimes = styled.ul`
 
 type SelectedWorkoutProps = {
   workout: Workout;
-  setRestTimes: (value: RestTimesConfig) => void;
-  restTimes: RestTimesConfig;
+  updateCurrentWorkoutRestTimes: (value: RestTimesConfig) => void;
 };
 
 const SelectedWorkout: React.FC<SelectedWorkoutProps> = ({
   workout,
-  setRestTimes,
-  restTimes
+  updateCurrentWorkoutRestTimes
 }: SelectedWorkoutProps) => {
   return (
     <WorkoutWrapper>
       <WorkoutTitle>{workout.name}</WorkoutTitle>
       <RestTimes>{workoutRestTimes(workout)}</RestTimes>
-      <RestInputWrapper>{restInputs(restTimes, setRestTimes)}</RestInputWrapper>
+      <RestInputWrapper>
+        {restInputs(workout.restTimeConfig, updateCurrentWorkoutRestTimes)}
+      </RestInputWrapper>
       <div>{`Total rest length: ${totalRestTime(workout)}`}</div>
       <div>{`Workout length: ${totalWorkoutTime(workout)}`}</div>
     </WorkoutWrapper>
