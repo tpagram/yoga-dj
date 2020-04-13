@@ -26,24 +26,24 @@ segments:
     { type: "video", name: "third set of wheel", start_time: 15:03, end_time: 16:40 },
     { type: "video", name: "first set wide arm pushup rotations", start_time: 16:40, end_time: 17:41 },
     { type: "video", name: "first set 1 minute wide arm plank", start_time: 17:41, end_time: 18:35 },
-    { type: "rest", restType: 'medium' },
+    { type: "rest", restType: 'long' },
     { type: "video", name: "first set wide one arm pushups", start_time: 18:35, end_time: 19:03 },
     { type: "video", name: "first set wide arm planche lean", start_time: 19:03, end_time: 19:24 },
     { type: "rest", restType: 'short' },
     { type: "video", name: "first set side hold", start_time: 19:24, end_time: 20:03 },
     { type: "video", name: "first set chatarungas", start_time: 20:03, end_time: 20:25 },
     { type: "video", name: "yin forward fold", start_time: 20:25, end_time: 24:48 },
-    { type: "video", name: "second set  wide arm pushup rotations", start_time: 24:48, end_time: 25:51 },
-    { type: "video", name: "second set  1 minute wide arm plank", start_time: 25:51, end_time: 26:58 },
-    { type: "rest", restType: 'medium' },
-    { type: "video", name: "second set  wide one arm pushups", start_time: 26:58, end_time: 27:14 },
-    { type: "video", name: "second set  wide arm planche lean", start_time: 27:14, end_time: 27:29 },
+    { type: "video", name: "second set wide arm pushup rotations", start_time: 24:48, end_time: 25:51 },
+    { type: "video", name: "second set 1 minute wide arm plank", start_time: 25:51, end_time: 26:58 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "second set wide one arm pushups", start_time: 26:58, end_time: 27:14 },
+    { type: "video", name: "second set wide arm planche lean", start_time: 27:14, end_time: 27:29 },
     { type: "rest", restType: 'short' },
     { type: "video", name: "second set side hold", start_time: 27:29, end_time: 28:02 },
     { type: "video", name: "second set chatarungas", start_time: 28:02, end_time: 28:22 },
     { type: "video", name: "video", start_time: 28:22, end_time: 30:19 }
   ]
 restLengths:
-  short: 0,
-  medium: 0,
-  long: 0
+  short: 45,
+  medium: 60,
+  long: 90

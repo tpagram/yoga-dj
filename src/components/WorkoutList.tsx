@@ -36,6 +36,7 @@ const WorkoutList: React.FC<WorkoutListProps> = ({
       onChange={handleChange}
       options={workoutOptions}
       styles={colourStyles}
+      menuPlacement="top"
     />
   );
 };

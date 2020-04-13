@@ -42,6 +42,7 @@ const YogaSession: React.FC<YogaSessionProps> = ({
           displayText={currentScene.name}
           timeInMillis={currentScene.timeInSeconds * 1000}
           finished={finishSceneCallback}
+          rest={false}
         />
       );
     case SceneType.rest:
@@ -51,12 +52,13 @@ const YogaSession: React.FC<YogaSessionProps> = ({
           displayText={currentScene.name}
           timeInMillis={currentScene.timeInSeconds * 1000}
           finished={finishSceneCallback}
+          rest={true}
         />
       );
     case SceneType.video:
       return (
         <VideoPlayer
-          key={currentScene.name}
+          key={currentScene.source}
           source={currentScene.source}
           finished={finishSceneCallback}
           startTime={currentScene.startTime}
