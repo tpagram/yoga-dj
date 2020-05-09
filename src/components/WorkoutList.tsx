@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Workout } from "../types/Workout";
 import Select from "react-select";
@@ -15,26 +15,23 @@ const WorkoutSelect = styled(Select)`
 
 type WorkoutListProps = {
   availableWorkouts: Workout[];
+  currentWorkoutId: string;
   onSelect: (workoutId: string) => void;
 };
 
 const WorkoutList: React.FC<WorkoutListProps> = ({
   availableWorkouts,
-  onSelect
+  currentWorkoutId,
+  onSelect,
 }: WorkoutListProps) => {
-  const workoutOptions = createWorkoutOptions(availableWorkouts);
-  const [selectedOption, setSelectedOption] = useState(workoutOptions[0]);
+  const options = availableWorkouts.map(workoutToListOption);
 
-  const handleChange = (newOption: SelectOption): void => {
-    setSelectedOption(newOption);
-    onSelect(newOption.value);
-  };
   return (
     <WorkoutSelect
       isSearchable={true}
-      value={selectedOption}
-      onChange={handleChange}
-      options={workoutOptions}
+      value={options.find((option) => option.value === currentWorkoutId)}
+      onChange={(option: SelectOption): void => onSelect(option.value)}
+      options={options}
       styles={colourStyles}
       menuPlacement="top"
     />
@@ -47,25 +44,24 @@ const colourStyles = {
     {
       data,
       isFocused,
-      isSelected
+      isSelected,
     }: { data: { colour: string }; isFocused: boolean; isSelected: boolean }
   ): {} => {
     return {
       ...styles,
       color: data.colour,
       backgroundColor: isFocused ? "#e1effa" : null,
-      border: isSelected ? "1px solid" : null
+      border: isSelected ? "1px solid" : null,
     };
-  }
+  },
 };
 
-const createWorkoutOptions = (availableWorkouts: Workout[]): SelectOption[] =>
-  availableWorkouts.map((workout: Workout) => {
-    return {
-      value: workout.id,
-      label: workout.name,
-      colour: null
-    };
-  });
+const workoutToListOption = (workout: Workout): SelectOption => {
+  return {
+    value: workout.id,
+    label: workout.name,
+    colour: null,
+  };
+};
 
 export default WorkoutList;

@@ -55,6 +55,7 @@ const StartScreen: React.FC<StartScreenProps> = ({
     ></SelectedWorkout>
     <WorkoutList
       availableWorkouts={availableWorkouts}
+      currentWorkoutId={currentWorkout.id}
       onSelect={onSelectWorkout}
     />
     <StartButton onClick={startButtonOnClick}>Start</StartButton>
