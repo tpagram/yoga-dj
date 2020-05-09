@@ -21,6 +21,6 @@ segments:
     { type: "video", name: "video", start_time: 28:41, end_time: 33:08 }
   ]
 restLengths:
-  short: 20,
-  medium: 30,
+  short: 20
+  medium: 30
   long: 40

@@ -10,6 +10,6 @@ segments:
     { type: "video", name: "video done", start_time: 20:26, end_time: 30:49 },
   ]
 restLengths:
-  short: 0,
-  medium: 0,
+  short: 0
+  medium: 0
   long: 0
