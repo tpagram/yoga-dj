@@ -1,0 +1,25 @@
+name: True Strength Evolution 1 Day 3
+segments:
+  [
+    { type: "video", name: "Intro", start_time: 0:00, end_time: 0:28 },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "video", name: "first set of plank work", start_time: 0:28, end_time: 6:21 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "second set of plank work", start_time: 6:21, end_time: 11:48 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "first set core", start_time: 11:48, end_time: 12:41 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "second set core", start_time: 12:41, end_time: 13:27 },
+    { type: "video", name: "pancake stretches", start_time: 13:27, end_time: 16:04 },
+    { type: "video", name: "pancakes-to-standing (need to work)", start_time: 16:04, end_time: 18:46 },
+    { type: "video", name: "first half first set plank work", start_time: 18:46, end_time: 21:38 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "second half first set plank work", start_time: 21:38, end_time: 24:32 },
+    { type: "video", name: "first half second set plank work", start_time: 24:32, end_time: 26:51 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "video", start_time: 26:51, end_time: 31:25 },
+  ]
+restLengths:
+  short: 15,
+  medium: 30,
+  long: 0

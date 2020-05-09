@@ -37,7 +37,7 @@ const yamlToWorkout = (file: any): Workout => {
     }
   );
   return {
-    id: file.filename,
+    id: file.name,
     name: yamlWorkout.name,
     scenes: scenes,
     restTimeConfig: yamlWorkout.restLengths

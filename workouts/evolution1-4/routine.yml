@@ -1,0 +1,23 @@
+name: True Strength Evolution 1 Day 4
+segments:
+  [
+    { type: "video", name: "intro", start_time: 0:00, end_time: 0:28 },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "video", name: "cardio stuff (floats, cresent)", start_time: 0:28, end_time: 4:14 },
+    { type: "video", name: "60s flutter kicks half", start_time: 4:14, end_time: 4:45 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "60s flutter kicks", start_time: 4:45, end_time: 5:18 },
+    { type: "video", name: "wide-leg work", start_time: 5:18, end_time: 18:18 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "wall sit, forearm stand, wall sit", start_time: 18:18, end_time: 19:47 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "forearm nose forwards, left tricep in, right tricep in", start_time: 19:47, end_time: 22:34 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "forearm wall plank, core lifts, wall plank, about to handstand", start_time: 22:34, end_time: 25:37 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "video", start_time: 25:37, end_time: 30:21 }
+  ]
+restLengths:
+  short: 15,
+  medium: 30,
+  long: 0
