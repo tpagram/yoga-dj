@@ -7,7 +7,7 @@ import useWorkoutManager from "../hooks/useWorkoutManager";
 enum Stage {
   startScreen,
   yogaSession,
-  endScreen
+  endScreen,
 }
 
 const App: React.FC = () => {
@@ -17,7 +17,7 @@ const App: React.FC = () => {
     setCurrentWorkout,
     availableWorkouts,
     updateCurrentWorkoutRestTimes,
-    saveCurrentWorkoutRestTimesToDisk
+    saveCurrentWorkoutRestTimesToDisk,
   ] = useWorkoutManager();
 
   switch (currentStage) {
@@ -30,7 +30,12 @@ const App: React.FC = () => {
         />
       );
     case Stage.endScreen:
-      return <EndScreen finishedWorkout={currentWorkout} />;
+      return (
+        <EndScreen
+          finishedWorkout={currentWorkout}
+          returnToStartScreen={(): void => setCurrentStage(Stage.startScreen)}
+        />
+      );
     case Stage.startScreen:
     default:
       return (

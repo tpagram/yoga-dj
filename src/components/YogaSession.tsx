@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import styled from "styled-components";
 import { SceneType } from "../types/Scene";
 import VideoPlayer from "./VideoPlayer";
 import Timer from "./Timer";

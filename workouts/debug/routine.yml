@@ -4,12 +4,12 @@ segments:
     # { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55" },
     # { type: "video", name: "Intro", start_time: "5:55", end_time: "6:00" },
     # { type: "video", name: "Intro", start_time: "6:00", end_time: "6:05" },
-    { type: "timer", name: "ok", duration: 6 },
-    { type: "timer", name: "test", duration: 6 },
-    { type: "timer", name: "then", duration: 6 },
-    { type: "rest", restType: 'short' },
-    { type: "timer", name: "second set of one-arm down dog fuckoffs", duration: 5000 },
-    { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55" },
+    { type: "timer", name: "ok", duration: 1 },
+    # { type: "timer", name: "test", duration: 6 },
+    # { type: "timer", name: "then", duration: 6 },
+    # { type: "rest", restType: 'short' },
+    # { type: "timer", name: "second set of one-arm down dog fuckoffs", duration: 5000 },
+    # { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55" },
     # { type: "video", name: "Wrists", start_time: 20, end_time: 25 },
     # { type: "timer", name: "second set of one-arm down dog fuckoffs", duration: 5 },
     # { type: "video", name: "Warmup", start_time: 99, end_time: 105 },
@@ -17,6 +17,6 @@ segments:
     # { type: "video", name: "Sun sals", start_time: 618, end_time: 628 },
   ]
 restLengths:
-  short: 999
+  short: 99
   medium: 10
   long: 30
