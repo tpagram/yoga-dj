@@ -1,0 +1,42 @@
+name: True Strength Evolution 2 Day 5
+segments:
+  [
+    { type: "video", name: "intro", start_time: 0:00, end_time: 0:26 },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "video", name: "handstand ball jumps", start_time: 0:26, end_time: 2:34 },
+    { type: "video", name: "crescent to one-leg pushups", start_time: 2:34, end_time: 4:25 },
+    { type: "video", name: "first 30 bicycles", start_time: 4:25, end_time: 5:28 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "last 20 bicycles", start_time: 5:28, end_time: 6:02 },
+    { type: "video", name: "wide-legged forward fold", start_time: 6:02, end_time: 7:37 },
+    { type: "video", name: "one-side wide-legged forward fold lifts", start_time: 7:37, end_time: 8:37 },
+    { type: "video", name: "goddess", start_time: 8:37, end_time: 9:38 },
+    { type: "video", name: "overhead squat hold", start_time: 9:38, end_time: 11:08 },
+    { type: "video", name: "Plow to boat", start_time: 11:08, end_time: 12:53 },
+    { type: "video", name: "Wide-legged side stretch", start_time: 12:53, end_time: 14:26 },
+    { type: "video", name: "one-side wide-legged forward fold lifts ", start_time: 14:26, end_time: 15:20 },
+    { type: "video", name: "goddess", start_time: 15:20, end_time: 16:09 },
+    { type: "video", name: "wide-legged planche lean", start_time: 16:09, end_time: 16:36 },
+    { type: "video", name: "squat holds", start_time: 16:36, end_time: 17:38 },
+    { type: "video", name: "plow to boat", start_time: 17:38, end_time: 19:25 },
+    { type: "video", name: "Wide-legged side stretch", start_time: 19:25, end_time: 20:56 },
+    { type: "video", name: "Dolphin wall hold", start_time: 20:56, end_time: 21:36 },
+    { type: "video", name: "Crouching straight-arm wall hold", start_time: 21:36, end_time: 21:58 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "Crouching wall hold extensions", start_time: 21:58, end_time: 22:38 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "30 sec chest-to-wall hold", start_time: 22:38, end_time: 23:14 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "wall plank", start_time: 23:14, end_time: 23:52 },
+    { type: "video", name: "pigeon pose", start_time: 23:52, end_time: 26:00 },
+    { type: "video", name: "handstand hold", start_time: 26:00, end_time: 27:10 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "wall plank knee-to-floors", start_time: 27:10, end_time: 27:38 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "handstand knee taps", start_time: 27:38, end_time: 28:19 },
+    { type: "video", name: "cool down", start_time: 28:19, end_time: 33:43 },
+  ]
+restLengths:
+  short: 40
+  medium: 80
+  long: 0

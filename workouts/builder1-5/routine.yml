@@ -1,0 +1,25 @@
+name: True Strength Builder 1 Day 5
+segments:
+  [
+    { type: "video", name: "intro", start_time: 0:00, end_time: 0:21 },
+    { type: "video", name: "wrists", start_time: 0:21, end_time: 2:06 },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "video", name: "warmup", start_time: 2:06, end_time: 6:49 },
+    #{ type: "video", name: "sun sals, start_time: 6:49, end_time: 9:15 }, skip sun sals
+    { type: "video", name: "one arm plank holds", start_time: 9:15, end_time: 10:58 },
+    { type: "video", name: "dolphin to chatarungas", start_time: 10:58, end_time: 13:18 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "down dog toe taps", start_time: 13:18, end_time: 14:35 },
+    { type: "video", name: "lolasana prep", start_time: 14:35, end_time: 17:03 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "crow", start_time: 17:03, end_time: 18:50 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "single leg wall planks", start_time: 18:50, end_time: 20:47 },
+    { type: "video", name: "shrimp squats", start_time: 20:47, end_time: 22:32 },
+    { type: "video", name: "sock work", start_time: 22:32, end_time: 24:01 },
+    { type: "video", name: "video", start_time: 24:01, end_time: 30:50 },
+  ]
+restLengths:
+  short: 0
+  medium: 0
+  long: 0
