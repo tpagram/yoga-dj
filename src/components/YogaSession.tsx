@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { SceneType } from "../types/Scene";
 import VideoPlayer from "./VideoPlayer";
 import Timer from "./Timer";
 import { Workout } from "../types/Workout";
-import { remote } from "electron";
+import useSleepBlocker from "../hooks/useSleepBlocker";
 
 type YogaSessionProps = {
   sessionWorkout: Workout;
@@ -12,18 +12,10 @@ type YogaSessionProps = {
 
 const YogaSession: React.FC<YogaSessionProps> = ({
   sessionWorkout,
-  endWorkout
+  endWorkout,
 }: YogaSessionProps) => {
   const [currentSceneNumber, setCurrentSceneNumber] = useState(0);
-
-  useEffect(() => {
-    const id = remote.powerSaveBlocker.start("prevent-display-sleep");
-    console.log("blocking power with:" + id);
-    return (): void => {
-      console.log("releasing power with:" + id);
-      remote.powerSaveBlocker.stop(id);
-    };
-  }, []);
+  useSleepBlocker();
 
   const currentScene = sessionWorkout.scenes[currentSceneNumber];
   const finishSceneCallback = setNextScene(
