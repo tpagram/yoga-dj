@@ -26,7 +26,7 @@ const parseWorkout = (workoutId: string): Workout => {
     id: workoutId,
     name: yamlWorkout.name,
     scenes: scenes,
-    restTimeConfig: yamlWorkout.restLengths
+    restTimeConfig: yamlWorkout.restLengths,
   };
 };
 

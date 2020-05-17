@@ -1,7 +1,7 @@
-import fsNode from 'fs'; // Required for fs type declaration.
+import fsNode from "fs"; // Required for fs type declaration.
 import { Workout } from "../types/Workout";
 import { remote } from "electron";
-import parseWorkout from "./workoutParser/workoutParser"
+import parseWorkout from "./workoutParser/workoutParser";
 
 const fsElectron = remote.require("fs");
 const BASE_PATH = "workouts";
