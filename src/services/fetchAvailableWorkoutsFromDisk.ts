@@ -16,28 +16,22 @@ const fetchAvailableWorkoutsFromDisk = (): Workout[] => {
     .map((dirent: any) => yamlToWorkout(dirent));
 };
 
-const yamlToWorkout = (file: any): Workout => {
+const yamlToWorkout = (folder: any): Workout => {
   const yamlWorkout = jsyaml.safeLoad(
-    fs.readFileSync(`${BASE_PATH}/${file.name}/routine.yml`, "utf8")
+    fs.readFileSync(`${BASE_PATH}/${folder.name}/routine.yml`, "utf8")
   );
   const scenes = yamlWorkout.segments.map(
     (segment: any, index: number, array: any[]): Scene => {
       return segmentToScene(
         segment,
-        path.join(
-          "file://",
-          remote.app.getAppPath(),
-          BASE_PATH,
-          file.name,
-          "main.mp4"
-        ),
+        folder.name,
         yamlWorkout.restLengths,
         index >= array.length - 1 ? "Rest" : array[index + 1].name
       );
     }
   );
   return {
-    id: file.name,
+    id: folder.name,
     name: yamlWorkout.name,
     scenes: scenes,
     restTimeConfig: yamlWorkout.restLengths
@@ -46,14 +40,14 @@ const yamlToWorkout = (file: any): Workout => {
 
 const segmentToScene = (
   segment: any,
-  filepath: string,
+  defaultFolderName: string,
   restLengths: any,
   nextSegmentName: string
 ): Scene => {
   if (segment.type === "video") {
     return {
       sceneType: SceneType.video,
-      source: filepath,
+      source: segment.source ? sourcePath(segment.source) : sourcePath(defaultFolderName),
       startTime: timeToInteger(segment.start_time),
       endTime: timeToInteger(segment.end_time),
       name: segment.name
@@ -73,6 +67,16 @@ const segmentToScene = (
     };
   }
 };
+
+const sourcePath = (folderName: string): string => {
+  return path.join(
+    "file://",
+    remote.app.getAppPath(),
+    BASE_PATH,
+    folderName,
+    "main.mp4"
+  )
+}
 
 const timeToInteger = (time: string | number): number => {
   if (typeof time !== "number") {

@@ -1,10 +1,11 @@
 name: Debug
 segments:
   [
-    # { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55" },
-    # { type: "video", name: "Intro", start_time: "5:55", end_time: "6:00" },
-    # { type: "video", name: "Intro", start_time: "6:00", end_time: "6:05" },
+    { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55", source: "builder1-2" },
+    { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55", source: "builder2-5" },
+    { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55", source: "evolution3-4" },
     { type: "timer", name: "ok", duration: 1 },
+    { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55", source: "evolution1-2" },
     # { type: "timer", name: "test", duration: 6 },
     # { type: "timer", name: "then", duration: 6 },
     # { type: "rest", restType: 'short' },
