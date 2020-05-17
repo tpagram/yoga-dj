@@ -1,3 +1,4 @@
+/* eslint-disable */
 const { app, BrowserWindow,powerSaveBlocker } = require('electron')
 const isDev = require('electron-is-dev');
 

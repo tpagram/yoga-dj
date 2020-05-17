@@ -57,7 +57,7 @@ type SelectedWorkoutProps = {
 
 const SelectedWorkout: React.FC<SelectedWorkoutProps> = ({
   workout,
-  updateCurrentWorkoutRestTimes
+  updateCurrentWorkoutRestTimes,
 }: SelectedWorkoutProps) => {
   return (
     <WorkoutWrapper>
@@ -88,6 +88,7 @@ const workoutRestTimes = (workout: Workout): JSX.Element[] => {
           </li>
         );
       case SceneType.video:
+      default:
         return <li key={index}>{`${scene.name}\n`}</li>;
     }
   });
@@ -97,7 +98,7 @@ const restInputs = (
   restTimes: RestTimesConfig,
   setRestTimes: (value: RestTimesConfig) => void
 ): JSX.Element[] => {
-  return ["short", "medium", "long"].map(duration => {
+  return ["short", "medium", "long"].map((duration) => {
     return (
       <RestInput key={duration}>
         <div>{duration}</div>
@@ -127,9 +128,7 @@ const totalRestTime = (workout: Workout): string => {
     (sum: number, rest: RestScene) => sum + rest.timeInSeconds,
     0
   );
-  return moment([0, 0])
-    .seconds(totalRestTime)
-    .format("m:ss");
+  return moment([0, 0]).seconds(totalRestTime).format("m:ss");
 };
 
 const totalWorkoutTime = (workout: Workout): string => {
@@ -145,9 +144,7 @@ const totalWorkoutTime = (workout: Workout): string => {
       }
     })
     .reduce((sum: number, sceneTime: number) => sum + sceneTime, 0);
-  return moment([0, 0])
-    .seconds(totalWorkoutTime)
-    .format("m:ss");
+  return moment([0, 0]).seconds(totalWorkoutTime).format("m:ss");
 };
 
 export default SelectedWorkout;
