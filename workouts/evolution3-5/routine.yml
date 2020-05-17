@@ -37,5 +37,5 @@ segments:
   ]
 restLengths:
   short: 45
-  medium: 60
-  long: 90
+  medium: 130
+  long: 190
