@@ -1,37 +1,29 @@
-// import fs from "fs";
 import jsyaml from "js-yaml";
-import { Workout } from "../types/Workout";
+import { Workout } from "../../types/Workout";
 import { remote } from "electron";
-import { Scene, SceneType } from "../types/Scene";
+import { Scene, SceneType } from "../../types/Scene";
+import { SerialisedWorkout, Segment, RestLengths } from "./SerialisedWorkout";
 
-const fs = remote.require("fs");
+const fsElectron = remote.require("fs");
 const path = remote.require("path");
 const BASE_PATH = "workouts";
 
-const fetchAvailableWorkoutsFromDisk = (): Workout[] => {
-  console.log("Fetching workouts from disk");
-  return fs
-    .readdirSync(BASE_PATH, { withFileTypes: true })
-    .filter((dirent: any) => dirent.isDirectory())
-    .map((dirent: any) => yamlToWorkout(dirent));
-};
-
-const yamlToWorkout = (folder: any): Workout => {
-  const yamlWorkout = jsyaml.safeLoad(
-    fs.readFileSync(`${BASE_PATH}/${folder.name}/routine.yml`, "utf8")
+const parseWorkout = (workoutId: string): Workout => {
+  const yamlWorkout: SerialisedWorkout = jsyaml.safeLoad(
+    fsElectron.readFileSync(`${BASE_PATH}/${workoutId}/routine.yml`, "utf8")
   );
   const scenes = yamlWorkout.segments.map(
-    (segment: any, index: number, array: any[]): Scene => {
+    (segment: Segment, index: number, array: Segment[]): Scene => {
       return segmentToScene(
         segment,
-        folder.name,
+        workoutId,
         yamlWorkout.restLengths,
         index >= array.length - 1 ? "Rest" : array[index + 1].name
       );
     }
   );
   return {
-    id: folder.name,
+    id: workoutId,
     name: yamlWorkout.name,
     scenes: scenes,
     restTimeConfig: yamlWorkout.restLengths
@@ -39,44 +31,46 @@ const yamlToWorkout = (folder: any): Workout => {
 };
 
 const segmentToScene = (
-  segment: any,
+  segment: Segment,
   defaultFolderName: string,
-  restLengths: any,
+  restLengths: RestLengths,
   nextSegmentName: string
 ): Scene => {
   if (segment.type === "video") {
     return {
       sceneType: SceneType.video,
-      source: segment.source ? sourcePath(segment.source) : sourcePath(defaultFolderName),
+      source: segment.source
+        ? sourcePath(segment.source)
+        : sourcePath(defaultFolderName),
       startTime: timeToInteger(segment.start_time),
       endTime: timeToInteger(segment.end_time),
-      name: segment.name
+      name: segment.name,
     };
   } else if (segment.type === "rest") {
     return {
       sceneType: SceneType.rest,
       timeInSeconds: restLengths[segment.restType],
       name: `Next: ${nextSegmentName}`,
-      durationType: segment.restType
+      durationType: segment.restType,
     };
   } else {
     return {
       sceneType: SceneType.timer,
       timeInSeconds: timeToInteger(segment.duration),
-      name: segment.name
+      name: segment.name,
     };
   }
 };
 
-const sourcePath = (folderName: string): string => {
+const sourcePath = (workoutId: string): string => {
   return path.join(
     "file://",
     remote.app.getAppPath(),
     BASE_PATH,
-    folderName,
+    workoutId,
     "main.mp4"
-  )
-}
+  );
+};
 
 const timeToInteger = (time: string | number): number => {
   if (typeof time !== "number") {
@@ -92,4 +86,4 @@ const timeToInteger = (time: string | number): number => {
   } else return time;
 };
 
-export default fetchAvailableWorkoutsFromDisk;
+export default parseWorkout;

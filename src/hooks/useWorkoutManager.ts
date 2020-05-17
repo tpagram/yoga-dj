@@ -1,5 +1,5 @@
 import { useState } from "react";
-import fetchAvailableWorkoutsFromDisk from "../services/fetchAvailableWorkoutsFromDisk";
+import { fetchWorkouts } from "../services/workoutRepository";
 import { SceneType } from "../types/Scene";
 import { RestTimesConfig, Workout } from "../types/Workout";
 
@@ -11,7 +11,7 @@ const useWorkoutManager = (): [
   () => void
 ] => {
   const [availableWorkouts, setAvailableWorkouts] = useState(
-    fetchAvailableWorkoutsFromDisk
+    fetchWorkouts
   );
   const [currentWorkoutId, setCurrentWorkoutId] = useState(
     availableWorkouts[0].id
