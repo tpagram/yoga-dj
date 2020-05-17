@@ -71,6 +71,12 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^4.2.5",
     "react-app-rewired": "^2.1.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx eslint \"src/**/*@(.ts|.tsx)\""
+    }
   }
 }
