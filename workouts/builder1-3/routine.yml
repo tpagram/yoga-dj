@@ -26,7 +26,3 @@ segments:
     { type: "video", name: "core", start_time: 29:11, end_time: 30:10 },
     { type: "video", name: "outro", start_time: 30:10, end_time: 34:37 },
   ]
-restLengths:
-  short: 0
-  medium: 20
-  long: 45

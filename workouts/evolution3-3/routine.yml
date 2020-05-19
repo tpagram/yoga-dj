@@ -48,7 +48,4 @@ segments:
     { type: "video", name: "warrior 3 work", start_time: 32:33, end_time: 33:51 },
     { type: "video", name: "video", start_time: 33:51, end_time: 35:36 }
   ]
-restLengths:
-  short: 37
-  medium: 75
-  long: 0
+

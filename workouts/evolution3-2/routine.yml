@@ -31,7 +31,4 @@ segments:
     { type: "video", name: "elevated pistols to standing splits", start_time: 26:36, end_time: 27:57 },
     { type: "video", name: "cooldown", start_time: 27:57, end_time: 31:23 },
   ]
-restLengths:
-  short: 0
-  medium: 0
-  long: 0
+

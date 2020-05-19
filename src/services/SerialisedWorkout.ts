@@ -1,6 +1,5 @@
 export interface SerialisedWorkout {
   segments: Segment[];
-  restLengths: RestLengths;
   name: string;
 }
 
@@ -25,6 +24,10 @@ export interface RestSegment {
 }
 
 export type Segment = VideoSegment | TimerSegment | RestSegment;
+
+export interface SerialisedRestLengths {
+  restLengths: RestLengths;
+}
 
 export interface RestLengths {
   [index: string]: number;

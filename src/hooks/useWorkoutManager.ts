@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchWorkouts } from "../services/workoutRepository";
+import { fetchWorkouts, saveWorkoutRestTimes } from "../services/workoutRepository";
 import { SceneType } from "../types/Scene";
 import { RestTimesConfig, Workout } from "../types/Workout";
 
@@ -37,11 +37,6 @@ const useWorkoutManager = (): [
     setAvailableWorkouts(newWorkouts);
   };
 
-  const saveCurrentWorkoutRestTimesToDisk = (): void => {
-    // TODO
-    console.log("saving rest times to disk!");
-  };
-
   const currentWorkout = availableWorkouts.filter(
     (workout: Workout) => workout.id === currentWorkoutId
   )[0];
@@ -51,7 +46,7 @@ const useWorkoutManager = (): [
     setCurrentWorkoutId,
     availableWorkouts,
     updateCurrentWorkoutRestTimes,
-    saveCurrentWorkoutRestTimesToDisk,
+    (): void => saveWorkoutRestTimes(currentWorkout),
   ];
 };
 

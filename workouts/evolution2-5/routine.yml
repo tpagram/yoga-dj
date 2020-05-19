@@ -36,7 +36,3 @@ segments:
     { type: "video", name: "handstand knee taps", start_time: 27:38, end_time: 28:19 },
     { type: "video", name: "cool down", start_time: 28:19, end_time: 33:43 },
   ]
-restLengths:
-  short: 40
-  medium: 80
-  long: 0

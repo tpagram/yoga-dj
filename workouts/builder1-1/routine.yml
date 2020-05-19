@@ -35,7 +35,4 @@ segments:
     { type: "video", name: "Socks sesh", start_time: "28:25", end_time: "29:58" },
     { type: "video", name: "Cooldown", start_time: "29:58", end_time: "34:25" },
   ]
-restLengths:
-  short: 0
-  medium: 14
-  long: 24
+

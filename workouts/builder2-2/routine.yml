@@ -43,7 +43,3 @@ segments:
     { type: "video", name: "core", start_time: 34:04, end_time: 35:10 },
     { type: "video", name: "cooldown", start_time: 35:10, end_time: 39:51 }
   ]
-restLengths:
-  short: 0
-  medium: 0
-  long: 0

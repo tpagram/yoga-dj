@@ -18,7 +18,3 @@ segments:
     { type: "rest", restType: 'medium' },
     { type: "video", name: "video", start_time: 28:54, end_time: 31:57 },
   ]
-restLengths:
-  short: 15
-  medium: 30
-  long: 0

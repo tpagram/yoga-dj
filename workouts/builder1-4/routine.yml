@@ -25,7 +25,3 @@ segments:
     { type: "video", name: "core crunches", start_time: 24:45, end_time: 26:06 },
     { type: "video", name: "video", start_time: 26:06, end_time: 30:12 }
   ]
-restLengths:
-  short: 0
-  medium: 35
-  long: 0

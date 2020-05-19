@@ -19,7 +19,3 @@ segments:
     { type: "video", name: "sock work", start_time: 22:32, end_time: 24:01 },
     { type: "video", name: "video", start_time: 24:01, end_time: 30:50 },
   ]
-restLengths:
-  short: 0
-  medium: 0
-  long: 0

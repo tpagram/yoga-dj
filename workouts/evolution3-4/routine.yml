@@ -43,7 +43,4 @@ segments:
     { type: "video", name: "second set chatarungas", start_time: 28:02, end_time: 28:22 },
     { type: "video", name: "video", start_time: 28:22, end_time: 30:19 }
   ]
-restLengths:
-  short: 45
-  medium: 60
-  long: 90
+

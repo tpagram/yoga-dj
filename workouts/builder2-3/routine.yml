@@ -29,9 +29,6 @@ segments:
     { type: "video", name: "Socks" , start_time: 27:20, end_time: 29:49 },
     { type: "video", name: "Cooldown" , start_time: 29:49, end_time: 34:55 },
   ]
-restLengths:
-  short: 0
-  medium: 0
-  long: 0
+
 
 

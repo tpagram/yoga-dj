@@ -35,7 +35,3 @@ segments:
     { type: "video", name: "wall plank hold", start_time: 27:10, end_time: 27:27 },
     { type: "video", name: "video", start_time: 27:27, end_time: 30:01 }
   ]
-restLengths:
-  short: 45
-  medium: 130
-  long: 190

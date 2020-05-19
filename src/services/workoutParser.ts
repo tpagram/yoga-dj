@@ -1,7 +1,7 @@
 import jsyaml from "js-yaml";
-import { Workout } from "../../types/Workout";
+import { Workout } from "../types/Workout";
 import { remote } from "electron";
-import { Scene, SceneType } from "../../types/Scene";
+import { Scene, SceneType } from "../types/Scene";
 import { SerialisedWorkout, Segment, RestLengths } from "./SerialisedWorkout";
 
 const fsElectron = remote.require("fs");
@@ -12,12 +12,14 @@ const parseWorkout = (workoutId: string): Workout => {
   const yamlWorkout: SerialisedWorkout = jsyaml.safeLoad(
     fsElectron.readFileSync(`${BASE_PATH}/${workoutId}/routine.yml`, "utf8")
   );
+  const restLengths = parseRestTimes(workoutId)
+
   const scenes = yamlWorkout.segments.map(
     (segment: Segment, index: number, array: Segment[]): Scene => {
       return segmentToScene(
         segment,
         workoutId,
-        yamlWorkout.restLengths,
+        restLengths,
         index >= array.length - 1 ? "Rest" : array[index + 1].name
       );
     }
@@ -26,8 +28,14 @@ const parseWorkout = (workoutId: string): Workout => {
     id: workoutId,
     name: yamlWorkout.name,
     scenes: scenes,
-    restTimeConfig: yamlWorkout.restLengths,
+    restTimeConfig: restLengths,
   };
+};
+
+const parseRestTimes = (workoutId: string): RestLengths => {
+  return jsyaml.safeLoad(
+    fsElectron.readFileSync(`${BASE_PATH}/${workoutId}/rest.yml`, "utf8")
+  ).restLengths
 };
 
 const segmentToScene = (

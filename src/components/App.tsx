@@ -17,12 +17,12 @@ const App: React.FC = () => {
     setCurrentWorkout,
     availableWorkouts,
     updateCurrentWorkoutRestTimes,
-    saveCurrentWorkoutRestTimesToDisk,
+    saveWorkoutRestTime,
   ] = useWorkoutManager();
 
   switch (currentStage) {
     case Stage.yogaSession:
-      saveCurrentWorkoutRestTimesToDisk();
+      saveWorkoutRestTime();
       return (
         <YogaSession
           sessionWorkout={currentWorkout}

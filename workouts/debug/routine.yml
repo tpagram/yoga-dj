@@ -1,23 +1,7 @@
 name: Debug
 segments:
   [
-    { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55", source: "builder1-2" },
-    { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55", source: "builder2-5" },
-    { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55", source: "evolution3-4" },
-    { type: "timer", name: "ok", duration: 1 },
-    { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55", source: "evolution1-2" },
-    # { type: "timer", name: "test", duration: 6 },
-    # { type: "timer", name: "then", duration: 6 },
-    # { type: "rest", restType: 'short' },
-    # { type: "timer", name: "second set of one-arm down dog fuckoffs", duration: 5000 },
-    # { type: "video", name: "Intro", start_time: "5:50", end_time: "5:55" },
-    # { type: "video", name: "Wrists", start_time: 20, end_time: 25 },
-    # { type: "timer", name: "second set of one-arm down dog fuckoffs", duration: 5 },
-    # { type: "video", name: "Warmup", start_time: 99, end_time: 105 },
-    # { type: "rest", restType: 'medium' },
-    # { type: "video", name: "Sun sals", start_time: 618, end_time: 628 },
+    { type: "video", name: "intro", start_time: 0:00, end_time: 0:03, source: 'builder1-1' },
+    { type: "rest", restType: 'long' }
   ]
-restLengths:
-  short: 99
-  medium: 10
-  long: 30
+

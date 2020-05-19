@@ -20,7 +20,3 @@ segments:
     { type: "video", name: "second side dolphin work", start_time: 26:30, end_time: 28:41 },
     { type: "video", name: "video", start_time: 28:41, end_time: 33:08 }
   ]
-restLengths:
-  short: 20
-  medium: 30
-  long: 40

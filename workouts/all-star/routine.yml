@@ -21,7 +21,4 @@ segments:
     { type: "timer", name: "5 one-arm one-leg wall planks", duration: 120 },
     { type: "timer", name: "twist", duration: 120 },
   ]
-restLengths:
-  short: 0
-  medium: 90
-  long: 120
+
