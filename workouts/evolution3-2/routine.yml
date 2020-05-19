@@ -1,0 +1,37 @@
+name: True Strength Evolution 3 Day 2
+segments:
+  [
+    { type: "video", name: "intro", start_time: 0:00, end_time: 0:36 },
+    { type: "video", name: "l-sit dip work (work on!) (two rounds, put gaps?)", start_time: 0:36, end_time: 1:35 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "plank and chatarunga work", start_time: 1:35, end_time: 2:53 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "bridge to chatarunga slides", start_time: 2:53, end_time: 3:47 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "chatarunga to forward fold slides", start_time: 3:47, end_time: 6:09 },
+    { type: "video", name: "l-sit dip work (work on!)", start_time: 6:09, end_time: 7:15 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "plank and chatarunga work", start_time: 7:15, end_time: 8:11 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "ridge to chatarunga slides", start_time: 8:11, end_time: 8:50 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "chatarunga to forward fold slides", start_time: 8:50, end_time: 10:54 },
+    { type: "video", name: "plow to sit to forward fold (flex gap)", start_time: 10:54, end_time: 13:27 },
+    { type: "video", name: "splits work", start_time: 13:27, end_time: 16:51 },
+    { type: "video", name: "first elbow block hold", start_time: 16:51, end_time: 17:17 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "second elbow block holds (work on!)", start_time: 17:17, end_time: 18:00 },
+    { type: "video", name: "chatarunga block pyramids", start_time: 18:00, end_time: 20:05 },
+    { type: "video", name: "elevated pistols to standing splits", start_time: 20:05, end_time: 21:41 },
+    { type: "video", name: "splits work", start_time: 21:41, end_time: 24:12 },
+    { type: "video", name: "first set elbow block holds", start_time: 24:12, end_time: 24:36 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "second set elbow block holds", start_time: 24:36, end_time: 25:07 },
+    { type: "video", name: "chatarunga block pyramids", start_time: 25:07, end_time: 26:36 },
+    { type: "video", name: "elevated pistols to standing splits", start_time: 26:36, end_time: 27:57 },
+    { type: "video", name: "cooldown", start_time: 27:57, end_time: 31:23 },
+  ]
+restLengths:
+  short: 0
+  medium: 0
+  long: 0
