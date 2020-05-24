@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Workout, RestTimesConfig } from "../types/Workout";
 import WorkoutList from "./WorkoutList";
 import SelectedWorkout from "./SelectedWorkout";
+import { PrimaryButton } from "./Button";
 
 const StartScreenWrapper = styled.div`
   display: grid;
@@ -18,18 +19,6 @@ const Title = styled.div`
   font-size: 30px;
   font-weight: bold;
   text-align: center;
-`;
-
-const StartButton = styled.div`
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-  background-color: #8bc990;
-  padding: 12px 100px;
-  border: 1px solid black;
-  :hover {
-    background-color: #74a878;
-  }
 `;
 
 type StartScreenProps = {
@@ -48,7 +37,7 @@ const StartScreen: React.FC<StartScreenProps> = ({
   updateCurrentWorkoutRestTimes
 }: StartScreenProps) => (
   <StartScreenWrapper>
-    <Title>YogaMotherfuckers!</Title>
+    <Title>YogaDJ!</Title>
     <SelectedWorkout
       workout={currentWorkout}
       updateCurrentWorkoutRestTimes={updateCurrentWorkoutRestTimes}
@@ -58,7 +47,7 @@ const StartScreen: React.FC<StartScreenProps> = ({
       currentWorkoutId={currentWorkout.id}
       onSelect={onSelectWorkout}
     />
-    <StartButton onClick={startButtonOnClick}>Start</StartButton>
+    <PrimaryButton onClick={startButtonOnClick}>Start</PrimaryButton>
   </StartScreenWrapper>
 );
 

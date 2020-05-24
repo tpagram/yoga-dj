@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import moment from "moment";
 import useTimer from "../hooks/useTimer";
+import COLOUR from "../styles/colour";
+import { SecondaryButton, PrimaryButton } from "./Button";
 
 const TimerWrapper = styled.div<{ rest: boolean }>`
   min-width: 100vw;
@@ -9,7 +11,8 @@ const TimerWrapper = styled.div<{ rest: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${(props): string => (props.rest ? "#ecfceb" : "#f7e7d7")};
+  background-color: ${(props): string =>
+    props.rest ? COLOUR.LIGHTEST_GREEN : COLOUR.LIGHT_PINK};
 `;
 
 const TimerDetails = styled.div`
@@ -31,32 +34,6 @@ const TimerDigits = styled.div`
   text-align: center;
 `;
 
-const TimerButton = styled.div`
-  background-color: #8bc990;
-  padding: 15px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  border: 1px solid black;
-  width: 50vw;
-  margin: auto;
-  margin-bottom: 30px;
-`;
-
-const SkipButton = styled(TimerButton)`
-  background-color: #f7d66a;
-  :hover {
-    background-color: #c2c246;
-  }
-`;
-
-const PauseButton = styled(TimerButton)`
-  background-color: #8bc990;
-  :hover {
-    background-color: #74a878;
-  }
-`;
-
 type TimerProps = {
   displayText: string;
   timeInMillis: number;
@@ -68,7 +45,7 @@ const Timer: React.FC<TimerProps> = ({
   displayText,
   timeInMillis,
   finished,
-  rest
+  rest,
 }: TimerProps) => {
   const [timeLeft, updatePausedState] = useTimer(timeInMillis, finished);
 
@@ -77,8 +54,8 @@ const Timer: React.FC<TimerProps> = ({
       <TimerDetails>
         <Title longText={displayText.length > 24}>{displayText}</Title>
         <TimerDigits>{moment(timeLeft).format("m:ss")}</TimerDigits>
-        <SkipButton onClick={finished}>Skip</SkipButton>
-        <PauseButton onClick={updatePausedState}>Pause</PauseButton>
+        <PrimaryButton onClick={updatePausedState}>Pause</PrimaryButton>
+        <SecondaryButton onClick={finished}>Skip</SecondaryButton>
       </TimerDetails>
     </TimerWrapper>
   );

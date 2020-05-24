@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Workout } from "../types/Workout";
 import Select from "react-select";
+import COLOUR from "../styles/colour";
 
 type SelectOption = {
   value: string;
@@ -50,7 +51,7 @@ const colourStyles = {
     return {
       ...styles,
       color: data.colour,
-      backgroundColor: isFocused ? "#e1effa" : null,
+      backgroundColor: isFocused ? COLOUR.LIGHT_BLUE : null,
       border: isSelected ? "1px solid" : null,
     };
   },

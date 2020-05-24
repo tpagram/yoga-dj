@@ -2,7 +2,7 @@ import jsyaml from "js-yaml";
 import { Workout } from "../types/Workout";
 import { remote } from "electron";
 import { Scene, SceneType } from "../types/Scene";
-import { SerialisedWorkout, Segment, RestLengths } from "./SerialisedWorkout";
+import { SerialisedWorkout, Segment, RestLengths } from "../types/SerialisedWorkout";
 
 const fsElectron = remote.require("fs");
 const path = remote.require("path");

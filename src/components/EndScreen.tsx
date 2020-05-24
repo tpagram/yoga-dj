@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Workout } from "../types/Workout";
 import { remote } from "electron";
+import { PrimaryButton, SecondaryButton } from "./Button";
 
 const EndScreenWrapper = styled.div`
   display: grid;
@@ -24,31 +25,6 @@ const Stats = styled.div`
   text-align: center;
 `;
 
-const Button = styled.div`
-  padding: 15px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  border: 1px solid black;
-  width: 50vw;
-  margin: auto;
-  margin-bottom: 30px;
-`;
-
-const CloseButton = styled(Button)`
-  background-color: #f7d66a;
-  :hover {
-    background-color: #c2c246;
-  }
-`;
-
-const ReturnButton = styled(Button)`
-  background-color: #8bc990;
-  :hover {
-    background-color: #74a878;
-  }
-`;
-
 type EndScreenProps = {
   finishedWorkout: Workout;
   returnToStartScreen: () => void;
@@ -68,8 +44,8 @@ const EndScreen: React.FC<EndScreenProps> = ({
     <Stats>
       Finished <strong>{finishedWorkout.name}</strong> with rest times <strong>[ {finishedWorkout.restTimeConfig.short} | {finishedWorkout.restTimeConfig.medium} | {finishedWorkout.restTimeConfig.long} ]</strong>.
     </Stats>
-    <ReturnButton onClick={returnToStartScreen}>Back to start</ReturnButton>
-    <CloseButton onClick={closeApp}>Close</CloseButton>
+    <PrimaryButton onClick={returnToStartScreen}>Back to start</PrimaryButton>
+    <SecondaryButton onClick={closeApp}>Close</SecondaryButton>
   </EndScreenWrapper>
 );
 export default EndScreen;
