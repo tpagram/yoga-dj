@@ -4,16 +4,7 @@ import { Workout, RestTimesConfig } from "../types/Workout";
 import WorkoutList from "./WorkoutList";
 import SelectedWorkout from "./SelectedWorkout";
 import { PrimaryButton } from "./Button";
-
-const StartScreenWrapper = styled.div`
-  display: grid;
-  grid-template-rows: 1fr 4fr 1fr 1fr;
-  grid-template-columns: 1fr;
-  align-items: center;
-  justify-items: center;
-  height: 100vh;
-  width: 100vw;
-`;
+import { FullScreenColumn } from "./Column";
 
 const Title = styled.div`
   font-size: 30px;
@@ -34,9 +25,9 @@ const StartScreen: React.FC<StartScreenProps> = ({
   availableWorkouts,
   onSelectWorkout,
   currentWorkout,
-  updateCurrentWorkoutRestTimes
+  updateCurrentWorkoutRestTimes,
 }: StartScreenProps) => (
-  <StartScreenWrapper>
+  <FullScreenColumn rows={"1fr 4fr 1fr 1fr"}>
     <Title>YogaDJ!</Title>
     <SelectedWorkout
       workout={currentWorkout}
@@ -48,7 +39,7 @@ const StartScreen: React.FC<StartScreenProps> = ({
       onSelect={onSelectWorkout}
     />
     <PrimaryButton onClick={startButtonOnClick}>Start</PrimaryButton>
-  </StartScreenWrapper>
+  </FullScreenColumn>
 );
 
 export default StartScreen;

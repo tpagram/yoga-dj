@@ -3,16 +3,7 @@ import styled from "styled-components";
 import { Workout } from "../types/Workout";
 import { remote } from "electron";
 import { PrimaryButton, SecondaryButton } from "./Button";
-
-const EndScreenWrapper = styled.div`
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-`;
+import { FullScreenColumn } from "./Column";
 
 const Title = styled.div`
   font-size: 60px;
@@ -39,13 +30,13 @@ const EndScreen: React.FC<EndScreenProps> = ({
   finishedWorkout,
   returnToStartScreen
 }: EndScreenProps) => (
-  <EndScreenWrapper>
+  <FullScreenColumn rows={"1fr 1fr 1fr"}>
     <Title>Yoga done!</Title>
     <Stats>
       Finished <strong>{finishedWorkout.name}</strong> with rest times <strong>[ {finishedWorkout.restTimeConfig.short} | {finishedWorkout.restTimeConfig.medium} | {finishedWorkout.restTimeConfig.long} ]</strong>.
     </Stats>
     <PrimaryButton onClick={returnToStartScreen}>Back to start</PrimaryButton>
     <SecondaryButton onClick={closeApp}>Close</SecondaryButton>
-  </EndScreenWrapper>
+  </FullScreenColumn>
 );
 export default EndScreen;

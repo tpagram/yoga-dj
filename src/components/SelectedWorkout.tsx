@@ -3,17 +3,7 @@ import styled from "styled-components";
 import { Workout, RestTimesConfig } from "../types/Workout";
 import moment from "moment";
 import { SceneType, Scene, RestScene } from "../types/Scene";
-
-const WorkoutWrapper = styled.div`
-  display: grid;
-  grid-template-rows: 2fr 3fr 1fr 1fr;
-  grid-template-columns: 1fr;
-  align-items: center;
-  justify-items: center;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-`;
+import { Column } from "./Column";
 
 const WorkoutTitle = styled.div`
   font-size: 50px;
@@ -60,7 +50,7 @@ const SelectedWorkout: React.FC<SelectedWorkoutProps> = ({
   updateCurrentWorkoutRestTimes,
 }: SelectedWorkoutProps) => {
   return (
-    <WorkoutWrapper>
+    <Column rows={"2fr 3fr 1fr 1fr"}>
       <WorkoutTitle>{workout.name}</WorkoutTitle>
       <RestTimes>{workoutRestTimes(workout)}</RestTimes>
       <RestInputWrapper>
@@ -68,7 +58,7 @@ const SelectedWorkout: React.FC<SelectedWorkoutProps> = ({
       </RestInputWrapper>
       <div>{`Total rest length: ${totalRestTime(workout)}`}</div>
       <div>{`Workout length: ${totalWorkoutTime(workout)}`}</div>
-    </WorkoutWrapper>
+    </Column>
   );
 };
 

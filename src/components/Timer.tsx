@@ -4,6 +4,7 @@ import moment from "moment";
 import useTimer from "../hooks/useTimer";
 import COLOUR from "../styles/colour";
 import { SecondaryButton, PrimaryButton } from "./Button";
+import { FullScreenColumn } from "./Column";
 
 const TimerWrapper = styled.div<{ rest: boolean }>`
   min-width: 100vw;
@@ -13,15 +14,6 @@ const TimerWrapper = styled.div<{ rest: boolean }>`
   justify-content: center;
   background-color: ${(props): string =>
     props.rest ? COLOUR.LIGHTEST_GREEN : COLOUR.LIGHT_PINK};
-`;
-
-const TimerDetails = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  grid-template-rows: 1fr 3fr 0.5fr 0.5fr;
 `;
 
 const Title = styled.div<{ longText: boolean }>`
@@ -51,12 +43,12 @@ const Timer: React.FC<TimerProps> = ({
 
   return (
     <TimerWrapper rest={rest}>
-      <TimerDetails>
+      <FullScreenColumn rows={"1fr 3fr 0.5fr 0.5fr"}>
         <Title longText={displayText.length > 24}>{displayText}</Title>
         <TimerDigits>{moment(timeLeft).format("m:ss")}</TimerDigits>
         <PrimaryButton onClick={updatePausedState}>Pause</PrimaryButton>
         <SecondaryButton onClick={finished}>Skip</SecondaryButton>
-      </TimerDetails>
+      </FullScreenColumn>
     </TimerWrapper>
   );
 };
