@@ -1,0 +1,28 @@
+name: True Strength Evolution 2 Day 1
+segments:
+  [
+    { type: "video", name: "intro", start_time: 0:00, end_time: 0:32 },
+    { type: "timer", name: "Handstand", duration: 600 },
+    { type: "video", name: "core", start_time: 0:32, end_time: 3:27 },
+    { type: "video", name: "first set of bow-planks", start_time: 3:27, end_time: 8:39 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "right sidecore", start_time: 8:39, end_time: 11:22 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "second set of bow-planks", start_time: 11:22, end_time: 15:50 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "left sidecore", start_time: 15:50, end_time: 18:33 },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "3 sets of wheel", start_time: 18:33, end_time: 21:50 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "dolphins to chatarunga", start_time: 21:50, end_time: 26:19 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "shoulder extensions", start_time: 26:19, end_time: 28:20 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "tippy toe holds", start_time: 28:20, end_time: 30:40 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "dolphins to chatarunga", start_time: 30:40, end_time: 31:32 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "shoulder extensions", start_time: 31:32, end_time: 32:43 },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "video", start_time: 32:43, end_time: 35:15 },
+  ]
