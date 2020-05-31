@@ -1,7 +1,7 @@
 name: Debug
 segments:
   [
-    # { type: "video", name: "intro", start_time: 0:00, end_time: 0:03, source: 'builder1-1' },
+    { type: "video", name: "intro", start_time: 0:00, end_time: 0:03, source: 'builder1-1' },
     { type: "rest", restType: 'long' },
     { type: "timer", name: "Handstand", duration: 3 },
   ]
