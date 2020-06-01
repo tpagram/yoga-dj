@@ -6,7 +6,7 @@ segments:
     { type: "video", name: "cardio warmup", start_time: 0:44, end_time: 3:49 },
     { type: "video", name: "scissor switches", start_time: 3:49, end_time: 6:23 },
     { type: "video", name: "first third core", start_time: 6:23, end_time: 7:39 },
-    { type: "rest", restType: 'short' },
+    { type: "rest", restType: 'short' }, # reduce these to 0
     { type: "video", name: "second third core", start_time: 7:39, end_time: 8:33 },
     { type: "rest", restType: 'short' },
     { type: "video", name: "final third core", start_time: 8:33, end_time: 9:29 },
@@ -29,7 +29,7 @@ segments:
     { type: "rest", restType: 'medium' },
     { type: "video", name: "wall sit up to one-leg pike second side", start_time: 25:37, end_time: 25:56 },
     { type: "rest", restType: 'long' },
-    { type: "video", name: "minute handstand hold half", start_time: 25:56, end_time: 26:40 },
+    { type: "video", name: "minute handstand hold half", start_time: 25:56, end_time: 26:40 }, # failure point
     { type: "rest", restType: 'medium' },
     { type: "video", name: "minute handstand hold", start_time: 26:40, end_time: 27:10 },
     { type: "video", name: "wall plank hold", start_time: 27:10, end_time: 27:27 },

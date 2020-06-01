@@ -1,0 +1,50 @@
+name: Training B22 E35 1
+segments:
+  [
+    # Core (try and reduce this to 0!)
+    { type: "video", name: "first third core", start_time: 6:23, end_time: 7:39, source: "evolution3-5" },
+    { type: "timer", name: "rest", duration: 10 },
+    { type: "video", name: "second third core", start_time: 7:39, end_time: 8:33, source: "evolution3-5" },
+    { type: "timer", name: "rest", duration: 10 },
+    { type: "video", name: "final third core", start_time: 8:33, end_time: 9:29, source: "evolution3-5" },
+
+    # { type: "video", name: "single side awkward planks", start_time: 10:27, end_time: 12:10, source: "builder2-2" },
+    # { type: "rest", restType: 'short' },
+    # { type: "video", name: "two sets of knee-to-tricep pushups", start_time: 12:10, end_time: 13:51, source: "builder2-2" },
+    # { type: "rest", restType: 'medium' },
+    # { type: "video", name: "upward dog pushups", start_time: 13:51, end_time: 14:50, source: "builder2-2" },
+    # { type: "rest", restType: 'medium' },
+    # { type: "video", name: "extended plank toe taps", start_time: 14:50, end_time: 16:22, source: "builder2-2" },
+    # { type: "rest", restType: 'short' },
+    # { type: "video", name: "side plank extended leg taps", start_time: 16:22, end_time: 18:04, source: "builder2-2" },
+    # { type: "rest", restType: 'short' },
+    # { type: "video", name: "kneel-to-boat-pose", start_time: 18:04, end_time: 19:41, source: "builder2-2" },
+    # { type: "rest", restType: 'short' },
+    # { type: "video", name: "pistols to crescent", start_time: 19:41, end_time: 21:50, source: "builder2-2" },
+    # { type: "rest", restType: 'medium' },
+    # { type: "video", name: "Two sets of toe taps", start_time: 21:50, end_time: 23:40, source: "builder2-2" },
+    # { type: "rest", restType: 'medium' },
+
+
+    { type: "video", name: "Dondasana", start_time: 23:40, end_time: 24:43, source: "builder2-2" },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "Lolasana", start_time: 24:43, end_time: 26:35, source: "builder2-2" },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "wheel 1", start_time: 26:35, end_time: 28:10, source: "builder2-2" },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "wheel 2", start_time: 28:10, end_time: 29:00, source: "builder2-2" },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "wheel 3", start_time: 29:00, end_time: 30:10, source: "builder2-2" },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "backbend wall walk downs", start_time: 30:10, end_time: 31:3, source: "builder2-2" },
+    { type: "rest", restType: 'long' },
+    { type: "video", name: "1 min chest-to-wall hold p1", start_time: 31:33, end_time: 32:05, source: "builder2-2" },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "1 min chest-to-wall hold p2", start_time: 32:05, end_time: 32:56, source: "builder2-2" },
+    { type: "rest", restType: 'medium' },
+    { type: "video", name: "crow pushups", start_time: 32:56, end_time: 34:04, source: "builder2-2" },
+    { type: "video", name: "core", start_time: 34:04, end_time: 35:10, source: "builder2-2" },
+    
+    # Cooldown
+    { type: "video", name: "cooldown", start_time: 35:10, end_time: 39:51, source: "builder2-2" }
+  ]
