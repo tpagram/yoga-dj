@@ -28,9 +28,10 @@ const useTimer = (
       setFinalTimeInMillis(moment().add(timeLeft, "ms"));
     } else {
       // The timer is running, update the time remaining.
-      setTimeout(() => {
+      const timeoutId = setTimeout(() => {
         setTimeLeft(finalTimeInMillis.diff(moment()));
       }, 100);
+      return (): void => clearTimeout(timeoutId)
     }
   }, [paused, timeLeft, finalTimeInMillis, finishedCallback]);
 
