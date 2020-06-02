@@ -2,6 +2,7 @@ import React from 'react'
 import { render, fireEvent, getByLabelText, findByText, findAllByText } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import App from './App'
+import { remote } from "electron";
 
 window.HTMLMediaElement.prototype.play = async (): Promise<void> => { /* do nothing */ };
 
@@ -44,9 +45,13 @@ test('when a workout contains a rest scene, it should show a timer', async () =>
   expect(queryByTestId('timer-content')).toBeTruthy();
 })
 
-// TODO
 test('when a workout contains a video scene, it should show a video player', async () => {
-  expect(true).toBeTruthy();
+  const { container, getByText, queryByTestId } = render(<App />)
+
+  await selectWorkout(container, /video workout/i)
+
+  fireEvent.click(getByText(/start/i))
+  expect(queryByTestId('video-player')).toBeTruthy();
 })
 
 test('when a timer is showing, the pause button should pause the timer', async () => {
@@ -78,6 +83,17 @@ test('on the end screen, the back-to-start button should move to the start scree
   fireEvent.click(getByText(/back/i))
 
   expect(queryByText(/yogadj/i)).toBeTruthy();
+})
+
+test('on the end screen, the close button should exit the app', async () => {
+  const { getByText } = render(<App />)
+
+  fireEvent.click(getByText(/start/i))
+  fireEvent.click(getByText(/skip/i))
+  fireEvent.click(getByText(/skip/i))
+  fireEvent.click(getByText(/close/i))
+
+  expect(remote.app.exit).toHaveBeenCalled()
 })
 
 const selectWorkout = async (container: HTMLElement, workoutName: RegExp): Promise<void> => {

@@ -45,6 +45,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
         ref={videoPlayerReference}
         controls
         autoPlay
+        data-testid="video-player"
       >
         <source src={source} type="video/mp4" />
       </video>

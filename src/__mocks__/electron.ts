@@ -6,10 +6,15 @@ export const remote = {
     readdirSync: readdirSync,
     readFileSync: readFileSync,
     writeFileSync: (path: string, payload: any): void => {},
+    join: (...paths: string[]): string => "/full_path",
   }),
   powerSaveBlocker: {
     start: (): string => "id",
     stop: (id: string): void => {},
+  },
+  app: {
+    exit: jest.fn(),
+    getAppPath: (): string => "/path"
   },
 };
 
@@ -22,25 +27,21 @@ const readdirSync = (path: string, options: any): any => [
     isDirectory: (): boolean => true,
     name: "rest_workout",
   },
-  // {
-  //   isDirectory: (): boolean => true,
-  //   name: "video_workout",
-  // },
+  {
+    isDirectory: (): boolean => true,
+    name: "video_workout",
+  },
 ];
 
 const readFileSync = (path: string, format: string): any => {
-  if (pathContains(path, "timer_workout")) {
-    if (pathContains(path, "routine")) {
-      return timerWorkoutRoutine;
-    } else if (pathContains(path, "rest")) {
-      return timerWorkoutRest;
-    }
+  if (pathContains(path, "rest.yml")) {
+    return restTimes;
+  } else if (pathContains(path, "timer_workout")) {
+    return timerWorkoutRoutine;
   } else if (pathContains(path, "rest_workout")) {
-    if (pathContains(path, "routine")) {
-      return restWorkoutRoutine;
-    } else if (pathContains(path, "rest")) {
-      return restWorkoutRest;
-    }
+    return restWorkoutRoutine;
+  } else if (pathContains(path, "video_workout")) {
+    return videoWorkoutRoutine;
   }
 };
 
@@ -55,13 +56,6 @@ segments: [
 ]
 `;
 
-const timerWorkoutRest = `
-restLengths:
-  short: 0
-  medium: 0
-  long: 0
-`;
-
 const restWorkoutRoutine = `
 name: Rest Workout
 segments: [ 
@@ -70,7 +64,15 @@ segments: [
 ]
 `;
 
-const restWorkoutRest = `
+const videoWorkoutRoutine = `
+name: Video Workout
+segments: [ 
+  { type: "video", name: "Video scene 1", start_time: 0:00, end_time: 1:30 },
+  { type: "video", name: "Video scene 1", start_time: 1:30, end_time: 3:00 },
+]
+`;
+
+const restTimes = `
 restLengths:
   short: 99
   medium: 99
