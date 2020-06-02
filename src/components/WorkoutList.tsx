@@ -35,6 +35,7 @@ const WorkoutList: React.FC<WorkoutListProps> = ({
       options={options}
       styles={colourStyles}
       menuPlacement="top"
+      aria-label="workout-selector"
     />
   );
 };

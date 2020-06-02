@@ -76,7 +76,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx eslint --max-warnings 0 \"src/**/*@(.ts|.tsx)\""
+      "pre-commit": "concurrently \"npx eslint --max-warnings 0 'src/**/*@(.ts|.tsx)'\" \"CI=true npm run react-test\""
     }
   }
 }
