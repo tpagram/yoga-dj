@@ -45,7 +45,7 @@ const Timer: React.FC<TimerProps> = ({
     <TimerWrapper rest={rest}>
       <FullScreenColumn rows={"1fr 3fr 0.5fr 0.5fr"}>
         <Title longText={displayText.length > 24}>{displayText}</Title>
-        <TimerDigits>{moment(timeLeft).format("m:ss")}</TimerDigits>
+        <TimerDigits data-testid="timer-content">{moment(timeLeft).format("m:ss")}</TimerDigits>
         <PrimaryButton onClick={updatePausedState}>Pause</PrimaryButton>
         <SecondaryButton onClick={finished}>Skip</SecondaryButton>
       </FullScreenColumn>

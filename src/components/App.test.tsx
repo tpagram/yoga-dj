@@ -26,18 +26,22 @@ test('when the start button is pressed, it starts playing the workout', async ()
 
   fireEvent.click(getByText(/start/i))
   expect(queryByText(/YogaDj/i)).toBeFalsy();
-  expect(queryByText(/Pause/i)).toBeTruthy();
-  expect(queryByText(/Skip/i)).toBeTruthy();
 })
 
-// TODO
 test('when a workout contains a timer scene, it should show a timer', async () => {
-  expect(true).toBeTruthy();
+  const { getByText, queryByTestId } = render(<App />)
+
+  fireEvent.click(getByText(/start/i))
+  expect(queryByTestId('timer-content')).toBeTruthy();
 })
 
-// TODO
 test('when a workout contains a rest scene, it should show a timer', async () => {
-  expect(true).toBeTruthy();
+  const { container, getByText, queryByTestId } = render(<App />)
+
+  await selectWorkout(container, /rest workout/i)
+
+  fireEvent.click(getByText(/start/i))
+  expect(queryByTestId('timer-content')).toBeTruthy();
 })
 
 // TODO
@@ -45,24 +49,35 @@ test('when a workout contains a video scene, it should show a video player', asy
   expect(true).toBeTruthy();
 })
 
-// TODO
 test('when a timer is showing, the pause button should pause the timer', async () => {
-  expect(true).toBeTruthy();
+  const { getByText, getByTestId } = render(<App />)
+
+  fireEvent.click(getByText(/start/i))
+  fireEvent.click(getByText(/pause/i))
+  
+  const initialTime = getByTestId('timer-content').textContent
+  expect(getByTestId('timer-content').textContent).toEqual(initialTime)
 })
 
-// TODO
 test('when a timer is showing, the skip button should move to the next scene', async () => {
-  expect(true).toBeTruthy();
+  const { getByText, queryByText } = render(<App />)
+
+  fireEvent.click(getByText(/start/i))
+
+  expect(queryByText(/timer scene 1/i)).toBeTruthy();
+  fireEvent.click(getByText(/skip/i))
+  expect(queryByText(/timer scene 2/i)).toBeTruthy();
 })
 
-// TODO
 test('on the end screen, the back-to-start button should move to the start screen', async () => {
-  expect(true).toBeTruthy();
-})
+  const { getByText, queryByText } = render(<App />)
 
-// TODO
-test('on the end screen, the close button should close the app', async () => {
-  expect(true).toBeTruthy();
+  fireEvent.click(getByText(/start/i))
+  fireEvent.click(getByText(/skip/i))
+  fireEvent.click(getByText(/skip/i))
+  fireEvent.click(getByText(/back/i))
+
+  expect(queryByText(/yogadj/i)).toBeTruthy();
 })
 
 const selectWorkout = async (container: HTMLElement, workoutName: RegExp): Promise<void> => {
