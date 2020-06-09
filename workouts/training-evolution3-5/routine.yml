@@ -1,17 +1,6 @@
 name: Training Evolution 3 Day 5
 segments:
   [
-    # Intro
-    # { type: "video", name: "intro", start_time: 0:00, end_time: 0:44 },
-    # { type: "timer", name: "handstands", duration: 300 },
-    # { type: "video", name: "cardio warmup", start_time: 0:44, end_time: 3:49 },
-    # { type: "video", name: "scissor switches", start_time: 3:49, end_time: 6:23 },
-    # { type: "video", name: "first third core", start_time: 6:23, end_time: 7:39 },
-    # { type: "rest", restType: 'short' },
-    # { type: "video", name: "second third core", start_time: 7:39, end_time: 8:33 },
-    # { type: "rest", restType: 'short' },
-    # { type: "video", name: "final third core", start_time: 8:33, end_time: 9:29 },
-    # { type: "video", name: "wide-legged work", start_time: 9:29, end_time: 19:52 },
 
     # Core (try and reduce this to 0!)
     { type: "video", name: "first third core", start_time: 6:23, end_time: 7:39, source: "evolution3-5" },
@@ -42,10 +31,10 @@ segments:
     { type: "rest", restType: 'long' },
     # this 1 min handstand is a big danger zone
     { type: "video", name: "minute handstand hold half", start_time: 25:56, end_time: 26:40, source: "evolution3-5" },
-    { type: "rest", restType: 'medium' },
+    { type: "rest", restType: 'long' },
     { type: "video", name: "minute handstand hold", start_time: 26:40, end_time: 27:10, source: "evolution3-5" },
     { type: "video", name: "wall plank hold", start_time: 27:10, end_time: 27:27, source: "evolution3-5" },
 
     # Cooldown
-    { type: "video", name: "video", start_time: 27:27, end_time: 30:01 }
+    { type: "video", name: "video", start_time: 27:27, end_time: 30:01, source: "evolution3-5" }
   ]

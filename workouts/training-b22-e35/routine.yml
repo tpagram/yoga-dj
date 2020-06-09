@@ -3,9 +3,7 @@ segments:
   [
     # Core (try and reduce this to 0!)
     { type: "video", name: "first third core", start_time: 6:23, end_time: 7:39, source: "evolution3-5" },
-    { type: "timer", name: "rest", duration: 10 },
     { type: "video", name: "second third core", start_time: 7:39, end_time: 8:33, source: "evolution3-5" },
-    { type: "timer", name: "rest", duration: 10 },
     { type: "video", name: "final third core", start_time: 8:33, end_time: 9:29, source: "evolution3-5" },
 
     # { type: "video", name: "single side awkward planks", start_time: 10:27, end_time: 12:10, source: "builder2-2" },
@@ -38,10 +36,9 @@ segments:
     { type: "rest", restType: 'long' },
     { type: "video", name: "backbend wall walk downs", start_time: 30:10, end_time: 31:3, source: "builder2-2" },
     { type: "rest", restType: 'long' },
-    { type: "video", name: "1 min chest-to-wall hold p1", start_time: 31:33, end_time: 32:05, source: "builder2-2" },
+    { type: "video", name: "1 min chest-to-wall hold p1", start_time: 31:33, end_time: 32:12, source: "builder2-2" },
     { type: "rest", restType: 'medium' },
-    { type: "video", name: "1 min chest-to-wall hold p2", start_time: 32:05, end_time: 32:56, source: "builder2-2" },
-    { type: "rest", restType: 'medium' },
+    { type: "video", name: "1 min chest-to-wall hold p2", start_time: 32:12, end_time: 32:56, source: "builder2-2" },
     { type: "video", name: "crow pushups", start_time: 32:56, end_time: 34:04, source: "builder2-2" },
     { type: "video", name: "core", start_time: 34:04, end_time: 35:10, source: "builder2-2" },
     
