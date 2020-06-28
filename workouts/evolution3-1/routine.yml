@@ -10,7 +10,7 @@ segments:
     { type: "video", name: "crazy unamed prone backbendy thing (need strap for this!)", start_time: 6:30, end_time: 8:10 },
     { type: "video", name: "one leg forearm plank work", start_time: 8:10, end_time: 9:44 },
     { type: "rest", restType: 'short' },
-    { type: "video", name: "forearm plank to side hold (these can catch you unaware, not because hard but because a little complex)", start_time: 9:44, end_time: 10:34 },
+    { type: "video", name: "forearm plank to side hold", start_time: 9:44, end_time: 10:34 },
     { type: "rest", restType: 'short' },
     { type: "video", name: "extended one arm plank", start_time: 10:34, end_time: 11:00 },
     { type: "video", name: "stretches and locust", start_time: 11:00, end_time: 15:48 },
@@ -35,5 +35,5 @@ segments:
     { type: "rest", restType: 'short' },
     { type: "video", name: "dolphin to chatargunas", start_time: 31:30, end_time: 32:00 },
     { type: "rest", restType: 'short' },
-    { type: "video", name: "video", start_time: 32:00, end_time: 35:54 },
+    { type: "video", name: "video", start_time: 32:00, end_time: 35:53 },
   ]

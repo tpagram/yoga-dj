@@ -2,7 +2,9 @@ name: True Strength Evolution 3 Day 4
 segments:
   [
     { type: "video", name: "intro", start_time: 0:00, end_time: 00:24 },
-    { type: "timer", name: "Handstand", duration: 300 },
+    { type: "timer", name: "Handstand", duration: 600 },
+
+    # First intense pushup section.
     { type: "video", name: "first set plank side twistos", start_time: 00:24, end_time: 1:40 },
     { type: "video", name: "first set up dogs to plank", start_time: 1:40, end_time: 2:19 },
     { type: "video", name: "first set first half chatargunas", start_time: 2:19, end_time: 3:28 },
@@ -15,15 +17,23 @@ segments:
     { type: "rest", restType: 'medium' },
     { type: "video", name: "second set second half chatargunas", start_time: 7:00, end_time: 7:36 },
     { type: "video", name: "half splits stretch", start_time: 7:36, end_time: 9:04 },
-    { type: "video", name: "first half of core", start_time: 9:04, end_time: 11:11 },
-    { type: "rest", restType: 'medium' },
-    { type: "video", name: "second half of core", start_time: 11:11, end_time: 12:17 },
-    { type: "rest", restType: 'medium' },
+
+    # Core workout - very tough.
+    { type: "video", name: "first part of core", start_time: 9:04, end_time: 11:11 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "second part of core", start_time: 11:11, end_time: 11:43 },
+    { type: "rest", restType: 'short' },
+    { type: "video", name: "third part of core", start_time: 11:43, end_time: 12:17 },
+    { type: "rest", restType: 'short' },
+
+    # Wheel stuff
     { type: "video", name: "first set of wheel", start_time: 12:17, end_time: 14:06 },
-    { type: "rest", restType: 'short' },
+    { type: "rest", restType: 'medium' },
     { type: "video", name: "second set of wheel", start_time: 14:06, end_time: 15:03 },
-    { type: "rest", restType: 'short' },
+    { type: "rest", restType: 'medium' },
     { type: "video", name: "third set of wheel", start_time: 15:03, end_time: 16:40 },
+
+    # Second intense pushup section.
     { type: "video", name: "first set wide arm pushup rotations", start_time: 16:40, end_time: 17:41 },
     { type: "video", name: "first set 1 minute wide arm plank", start_time: 17:41, end_time: 18:35 },
     { type: "rest", restType: 'long' },
