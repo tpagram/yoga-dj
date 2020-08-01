@@ -30,7 +30,7 @@ segments:
     { type: "video", name: "first set of wheel", start_time: 12:17, end_time: 14:06, source: "evolution3-4"  },
     { type: "rest", restType: 'medium' },
     { type: "video", name: "second set of wheel", start_time: 14:06, end_time: 15:03, source: "evolution3-4"  },
-    { type: "rest", restType: 'medium' },
+    { type: "rest", restType: 'short' },
     { type: "video", name: "third set of wheel", start_time: 15:03, end_time: 16:40, source: "evolution3-4"  },
 
     # Second intense pushup section. 

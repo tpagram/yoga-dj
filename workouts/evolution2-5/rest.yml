@@ -1,4 +1,4 @@
 restLengths:
-  short: 40
-  medium: 80
-  long: 0
+  short: 5
+  medium: 20
+  long: 35
